@@ -20,20 +20,22 @@
 
 
 <script>
-import Top from './components/Top'
-import Navigation from './components/Navigation'
-import RegistrationForm from './components/Registration-form'
-import Bottom from './components/Bottom'
 
-export default {
-  name: 'Congress',
-  components: {
-    Top,
-    Navigation,
-    RegistrationForm,
-    Bottom
+  import Top from './components/Top'
+  import Navigation from './components/Navigation'
+  import RegistrationForm from './components/Registration-form'
+  import Bottom from './components/Bottom'
+
+  export default {
+    name: 'Congress',
+    components: {
+      Top,
+      Navigation,
+      RegistrationForm,
+      Bottom
+    }
   }
-}
+
 </script>
 
 
@@ -84,6 +86,5 @@ export default {
       font-size: 1.5em;
     }
   }
-
 
 </style>
