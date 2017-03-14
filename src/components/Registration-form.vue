@@ -22,10 +22,10 @@
 
 
 <script>
-  import PersonRegistrationForm from './Person-registration-form'
-  import GroupRegistrationForm from './Group-registration-form'
-  import DepositRegistrationForm from './Deposit-registration-form'
-  import TermsAcceptanceForm from './Terms-acceptance-form'
+  import PersonRegistrationForm from './forms/Person-registration-form'
+  import GroupRegistrationForm from './forms/Group-registration-form'
+  import DepositRegistrationForm from './forms/Deposit-registration-form'
+  import TermsAcceptanceForm from './forms/Terms-acceptance-form'
 
   export default {
     name: 'Registration-form',
