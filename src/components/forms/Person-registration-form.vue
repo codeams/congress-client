@@ -131,6 +131,7 @@
 
   export default {
     name: 'Person-registration-form',
+
     data() {
       return {
         person: {
@@ -148,13 +149,16 @@
         }
       }
     },
+
     computed: {
       namePreview () {
         return this.person.firstName + ' ' + this.person.lastName
       },
       ...mapGetters (['person'])
     },
+
     methods: mapActions (['setPerson']),
+
     watch: {
       person: {
         handler( person ) { this.setPerson( person ) },
