@@ -64,8 +64,8 @@
             <label>
               <span>Así se imprimirá tu nombre</span>
 
-              <input type='text' disabled='disabled'
-                placeholder='Completado automáticamente'>
+              <input type='text' :value='namePreview'
+                disabled='disabled' placeholder='Completado automáticamente'>
             </label>
           </div>
         </div>
@@ -148,7 +148,12 @@
         }
       }
     },
-    computed: mapGetters (['person']),
+    computed: {
+      namePreview () {
+        return this.person.firstName + ' ' + this.person.lastName
+      },
+      ...mapGetters (['person'])
+    },
     methods: mapActions (['setPerson']),
     watch: {
       person: {
