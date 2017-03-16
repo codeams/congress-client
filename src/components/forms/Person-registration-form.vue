@@ -46,7 +46,8 @@
             <label>
               <span>Nombre(s)</span>
 
-              <input type='text' placeholder='Obligatorio'>
+              <input type='text' placeholder='Obligatorio'
+                :value='degree' @input='setDegree($event.target.value)'>
             </label>
           </div>
 
@@ -123,10 +124,20 @@
 
 
 <script>
+
+  import { mapGetters, mapActions } from 'vuex'
+
   export default {
     name: 'Person-registration-form',
     data () {
       return {}
-    }
+    },
+    computed: mapGetters ([
+      'degree'
+    ]),
+    methods: mapActions ([
+      'setDegree'
+    ])
   }
+
 </script>
