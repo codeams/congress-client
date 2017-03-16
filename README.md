@@ -1,6 +1,6 @@
-# vuex-congress
+# congress-client
 
-> Congress registration system built with VueJS.
+> Congress registration client. Uses Vue2 (webpack template), Vuex, Foundation-sass.
 
 ## Build Setup
 
