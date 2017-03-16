@@ -23,7 +23,7 @@
             <label>
               <span>Ciudad</span>
 
-              <input type='text' placeholder='Requerido'>
+              <input type='text' placeholder='Obligatorio'>
             </label>
           </div>
         </div>
