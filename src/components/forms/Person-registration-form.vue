@@ -46,7 +46,8 @@
             <label>
               <span>Nombre(s)</span>
 
-              <input type='text' placeholder='Obligatorio' v-model='person.firstName'>
+              <input type='text' placeholder='Obligatorio'
+                v-model='person.firstName'>
             </label>
           </div>
 
@@ -54,7 +55,8 @@
             <label>
               <span>Apellidos</span>
 
-              <input type='text' placeholder='Obligatorio' v-model='person.lastName'>
+              <input type='text' placeholder='Obligatorio'
+                v-model='person.lastName'>
             </label>
           </div>
         </div>
@@ -85,7 +87,8 @@
             <label>
               <span>Facultad</span>
 
-              <input type='text' placeholder='Opcional' v-model='person.faculty'>
+              <input type='text' placeholder='Opcional'
+                v-model='person.faculty'>
             </label>
           </div>
         </div>
@@ -113,7 +116,8 @@
             <label>
               <span>Correo electrónico</span>
 
-              <input type='text' placeholder='Obligatorio' v-model='person.email'>
+              <input type='text' placeholder='Obligatorio'
+                v-model='person.email'>
             </label>
           </div>
         </div>
@@ -157,13 +161,42 @@
       ...mapGetters (['person'])
     },
 
-    methods: mapActions (['setPerson']),
+    methods: {
+      capitalize ( value ) {
+
+        var words = value.split( ' ' );
+
+        words.forEach( function( word, wordIndex ) {
+          var firstLetter = word.charAt( 0 );
+          var otherLetters = word.slice( 1 );
+
+          firstLetter = firstLetter.toUpperCase();
+          otherLetters = otherLetters.toLowerCase();
+
+          word = firstLetter + otherLetters;
+          words[ wordIndex ] = word;
+        });
+
+        words = words.join( ' ' );
+        return words;
+      },
+
+      ...mapActions (['setPerson'])
+    },
 
     watch: {
-      person: {
-        handler( person ) { this.setPerson( person ) },
-        deep: true
+      'person.firstName' ( firstName ) {
+        this.person.firstName = this.capitalize( firstName )
+      },
+      'person.lastName' ( lastName ) {
+        this.person.lastName = this.capitalize( lastName )
       }
+      // person: {
+      //   handler( person ) {
+      //     this.setPerson( person )
+      //   },
+      //   deep: true
+      // }
     }
   }
 
