@@ -99,7 +99,7 @@
     padding-right: 36px;
   }
 
-  select.default-value {
+  select.is-default {
     color: #bbb;
   }
 

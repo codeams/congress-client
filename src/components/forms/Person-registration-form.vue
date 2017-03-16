@@ -15,7 +15,8 @@
             <label>
               <span>Grado</span>
 
-              <select v-model='person.degree'>
+              <select v-model='person.degree'
+                :class='{ "is-default": !person.degree }'>
                 <option value=''>Obligatorio</option>
                 <option value='Dr.'>Doctor</option>
                 <option value='Mtro.'>Maestro</option>
@@ -30,7 +31,8 @@
             <label>
               <span>Tipo de participante</span>
 
-              <select v-model='person.role'>
+              <select v-model='person.role'
+                :class='{ "is-default": !person.role }'>
                 <option value=''>Obligatorio</option>
                 <option value='student'>Alumno</option>
                 <option value='manager'>Directivo</option>
@@ -77,7 +79,8 @@
             <label>
               <span>Universidad / Institución</span>
 
-              <select v-model='person.institution'>
+              <select v-model='person.institution'
+                :class='{ "is-default": !person.institution }'>
                 <option value=''>Obligatorio</option>
               </select>
             </label>
