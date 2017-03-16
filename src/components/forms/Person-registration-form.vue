@@ -191,12 +191,6 @@
       'person.lastName' ( lastName ) {
         this.person.lastName = this.capitalize( lastName )
       }
-      // person: {
-      //   handler( person ) {
-      //     this.setPerson( person )
-      //   },
-      //   deep: true
-      // }
     }
   }
 
