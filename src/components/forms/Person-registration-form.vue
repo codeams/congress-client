@@ -157,7 +157,10 @@
 
     computed: {
       namePreview () {
-        return this.person.firstName + ' ' + this.person.lastName
+        let isSomeNameDefined = this.person.firstName || this.person.lastName
+        return isSomeNameDefined
+          ? this.person.firstName + ' ' + this.person.lastName
+          : ''
       },
       ...mapGetters (['person'])
     },
