@@ -131,6 +131,7 @@
 <script>
 
   import { mapGetters, mapActions } from 'vuex'
+  import { capitalize } from '../../utils/filters'
 
 
   export default {
@@ -161,35 +162,14 @@
       ...mapGetters (['person'])
     },
 
-    methods: {
-      capitalize ( value ) {
-
-        var words = value.split( ' ' );
-
-        words.forEach( function( word, wordIndex ) {
-          var firstLetter = word.charAt( 0 );
-          var otherLetters = word.slice( 1 );
-
-          firstLetter = firstLetter.toUpperCase();
-          otherLetters = otherLetters.toLowerCase();
-
-          word = firstLetter + otherLetters;
-          words[ wordIndex ] = word;
-        });
-
-        words = words.join( ' ' );
-        return words;
-      },
-
-      ...mapActions (['setPerson'])
-    },
+    methods: mapActions (['setPerson']),
 
     watch: {
       'person.firstName' ( firstName ) {
-        this.person.firstName = this.capitalize( firstName )
+        this.person.firstName = capitalize( firstName )
       },
       'person.lastName' ( lastName ) {
-        this.person.lastName = this.capitalize( lastName )
+        this.person.lastName = capitalize( lastName )
       }
     }
   }
