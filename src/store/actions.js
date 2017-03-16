@@ -1,4 +1,4 @@
 
-export const setDegree = ( { commit }, value ) => {
-  commit( 'setDegree', value )
+export const setPerson = ( { commit }, person ) => {
+  commit( 'setPerson', person )
 }

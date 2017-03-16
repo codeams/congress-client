@@ -1,2 +1,2 @@
 
-export const degree = ({ person }) => person.degree;
+export const person = state => state.person

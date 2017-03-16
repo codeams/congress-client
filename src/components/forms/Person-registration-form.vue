@@ -15,7 +15,7 @@
             <label>
               <span>Grado</span>
 
-              <select>
+              <select v-model='person.degree'>
                 <option value=''>Obligatorio</option>
                 <option value='Dr.'>Doctor</option>
                 <option value='Mtro.'>Maestro</option>
@@ -30,7 +30,7 @@
             <label>
               <span>Tipo de participante</span>
 
-              <select>
+              <select v-model='person.role'>
                 <option value=''>Obligatorio</option>
                 <option value='student'>Alumno</option>
                 <option value='manager'>Directivo</option>
@@ -46,8 +46,7 @@
             <label>
               <span>Nombre(s)</span>
 
-              <input type='text' placeholder='Obligatorio'
-                :value='degree' @input='setDegree($event.target.value)'>
+              <input type='text' placeholder='Obligatorio' v-model='person.firstName'>
             </label>
           </div>
 
@@ -55,7 +54,7 @@
             <label>
               <span>Apellidos</span>
 
-              <input type='text' placeholder='Obligatorio'>
+              <input type='text' placeholder='Obligatorio' v-model='person.lastName'>
             </label>
           </div>
         </div>
@@ -76,7 +75,7 @@
             <label>
               <span>Universidad / Institución</span>
 
-              <select>
+              <select v-model='person.institution'>
                 <option value=''>Obligatorio</option>
               </select>
             </label>
@@ -86,7 +85,7 @@
             <label>
               <span>Facultad</span>
 
-              <input type='text' placeholder='Opcional'>
+              <input type='text' placeholder='Opcional' v-model='person.faculty'>
             </label>
           </div>
         </div>
@@ -96,7 +95,8 @@
             <label>
               <span>Teléfono</span>
 
-              <input type='number' placeholder='Obligatorio'>
+              <input type='number' placeholder='Obligatorio'
+                v-model='person.telephone.number'>
             </label>
           </div>
 
@@ -104,7 +104,8 @@
             <label>
               <span>Extensión</span>
 
-              <input type='number' placeholder='Opcional'>
+              <input type='number' placeholder='Opcional'
+                v-model='person.telephone.extension'>
             </label>
           </div>
 
@@ -112,7 +113,7 @@
             <label>
               <span>Correo electrónico</span>
 
-              <input type='text' placeholder='Obligatorio'>
+              <input type='text' placeholder='Obligatorio' v-model='person.email'>
             </label>
           </div>
         </div>
@@ -127,17 +128,34 @@
 
   import { mapGetters, mapActions } from 'vuex'
 
+
   export default {
     name: 'Person-registration-form',
-    data () {
-      return {}
+    data() {
+      return {
+        person: {
+          degree: '',
+          role: '',
+          firstName: '',
+          lastName: '',
+          institution: '',
+          faculty: '',
+          telephone: {
+            number: '',
+            extension: ''
+          },
+          email: ''
+        }
+      }
     },
-    computed: mapGetters ([
-      'degree'
-    ]),
-    methods: mapActions ([
-      'setDegree'
-    ])
+    computed: mapGetters (['person']),
+    methods: mapActions (['setPerson']),
+    watch: {
+      person: {
+        handler( person ) { this.setPerson( person ) },
+        deep: true
+      }
+    }
   }
 
 </script>

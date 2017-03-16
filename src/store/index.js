@@ -11,9 +11,7 @@ import * as actions from './actions'
 export default new Vuex.Store({
 
   state: {
-    person: {
-      degree: ''
-    }
+    person: {}
   },
 
   getters,

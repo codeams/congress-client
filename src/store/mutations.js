@@ -1,4 +1,4 @@
 
-export const setDegree = ( { person }, degree ) => {
-  person.degree = degree
+export const setPerson = ( state, person ) => {
+  state.person = person
 }
