@@ -7,6 +7,10 @@ export const gotoStage = ( { commit }, stageIndex ) => {
   commit( 'gotoStage', stageIndex )
 }
 
+export const gotoStageNamed = ( { commit }, stageName ) => {
+  commit( 'gotoStageNamed', stageName )
+}
+
 export const gotoNextStage = ( { commit } ) => {
   commit( 'gotoNextStage' )
 }

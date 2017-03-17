@@ -7,6 +7,11 @@ export const gotoStage = ( state, stageIndex ) => {
   state.currentStageIndex = stageIndex
 }
 
+export const gotoStageNamed = ( state, stageName ) => {
+  let stageIndex = state.pipeline.map( e => e.name ).indexOf( stageName )
+  if ( stageIndex > 0 ) state.currentStageIndex = stageIndex
+}
+
 export const gotoNextStage = ( state ) => {
   state.currentStageIndex++
 }

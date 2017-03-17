@@ -52,7 +52,7 @@
       <div class='small-12 text-center columns'>
         <div class='action-buttons align-center row'>
           <div class='button-container small-12 medium-6 text-center columns'>
-            <input type='button' @click='this.gotoNextStage'
+            <input type='button' @click='gotoNextStage'
               class='button primary large' value='Continuar'>
           </div>
         </div>
