@@ -7,7 +7,7 @@
       <div class='registration-types small-up-1 medium-up-2 large-up-3 row'>
 
         <div class='column'>
-          <div @click='next' class='registration-type'>
+          <div class='registration-type'>
             <span class='type-price'>$ 0</span>
             <span class='type-name'>Alumno de UADY</span>
           </div>

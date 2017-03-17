@@ -8,7 +8,9 @@
       <navigation></navigation>
 
       <div class='content'>
-        <registration-form></registration-form>
+        <transition name='component-fade' mode='out-in'>
+          <component :is='this.currentStage.name'></component>
+        </transition>
       </div>
 
     </div>
@@ -21,19 +23,42 @@
 
 <script>
 
+  import { mapGetters, mapActions } from 'vuex'
+
   import Top from './components/Top'
   import Navigation from './components/Navigation'
-  import RegistrationForm from './components/Registration-form'
   import Bottom from './components/Bottom'
+
+  import Instructions from './components/Instructions'
+  import PricesGrid from './components/Prices-grid'
+  import RegistrationForm from './components/Registration-form'
+
 
   export default {
     name: 'Congress',
+    data () {
+      return {}
+    },
+
     components: {
-      Top,
-      Navigation,
-      RegistrationForm,
-      Bottom
-    }
+      'top': Top,
+      'navigation': Navigation,
+      'instructions': Instructions,
+      'prices-grid': PricesGrid,
+      'registration-form': RegistrationForm,
+      'bottom': Bottom
+    },
+
+    computed: mapGetters ([
+      'pipeline',
+      'currentStage'
+    ]),
+
+    methods: mapActions ([
+      'gotoStage',
+      'gotoNextStage',
+      'gotoPrevStage'
+    ])
   }
 
 </script>
@@ -61,6 +86,16 @@
 
   .content {
     padding: 0 60px 60px;
+  }
+
+  .component-fade-enter-active,
+  .component-fade-leave-active {
+    transition: opacity .3s ease;
+  }
+
+  .component-fade-enter,
+  .component-fade-leave-to {
+    opacity: 0;
   }
 
   .section-title {

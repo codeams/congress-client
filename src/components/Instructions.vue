@@ -52,7 +52,8 @@
       <div class='small-12 text-center columns'>
         <div class='action-buttons align-center row'>
           <div class='button-container small-12 medium-6 text-center columns'>
-            <input type='button' class='button primary large' value='Continuar'>
+            <input type='button' @click='this.gotoNextStage'
+              class='button primary large' value='Continuar'>
           </div>
         </div>
       </div>
@@ -63,17 +64,27 @@
 
 
 <script>
+
+  import { mapActions } from 'vuex'
+
+
   export default {
     name: 'instructions',
+
     data () {
       return {}
-    }
+    },
+
+    methods: mapActions ([ 'gotoNextStage' ])
   }
+
 </script>
 
 
 <style scoped>
+
   .section-content {
     margin-bottom: 45px;
   }
+
 </style>

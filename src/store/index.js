@@ -11,7 +11,25 @@ import * as actions from './actions'
 export default new Vuex.Store({
 
   state: {
-    person: {}
+    person: {},
+
+    pipeline: [
+      {
+        name: 'instructions',
+        locked: false
+      },
+      {
+        name: 'prices-grid',
+        locked: true
+      },
+      {
+        name: 'registration-form',
+        locked: true
+      }
+    ],
+
+    currentStageIndex: 0
+
   },
 
   getters,
