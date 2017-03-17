@@ -9,11 +9,22 @@
 
       <div class='small-12 large-6 columns-collapsed'>
 
-        <span class='previous section instructions'></span>
-        <span class='previous section prices'></span>
-        <span class='current section registration'></span>
-        <span class='forward section validation'></span>
-        <span class='forward section voucher-submission'></span>
+        <span
+          v-for='stage, stageIndex in pipeline'
+          v-if='stage.visible'
+          @click='
+            stageIndex < currentStageIndex
+              ? gotoStageNamed( stage.name )
+              : ""
+          '
+          :class='[
+            "section",
+            stage.name,
+            { "current" : stageIndex === currentStageIndex },
+            { "previous" : stageIndex < currentStageIndex },
+            { "forward" : stageIndex > currentStageIndex },
+          ]'
+        ></span>
 
       </div>
     </div>
@@ -22,12 +33,24 @@
 
 
 <script>
+
+  import { mapGetters, mapActions } from 'vuex'
+
   export default {
     name: 'navigation',
     data () {
       return {}
-    }
+    },
+    computed: mapGetters ([
+      'pipeline',
+      'currentStageIndex',
+      'currentStage'
+    ]),
+    methods: mapActions ([
+      'gotoStageNamed'
+    ])
   }
+
 </script>
 
 
@@ -73,19 +96,19 @@
     background-image: url( '../assets/icons/instructions.svg' );
   }
 
-  .section.prices {
+  .section.prices-grid {
     background-image: url( '../assets/icons/prices.svg' );
   }
 
-  .section.registration {
+  .section.registration-form {
     background-image: url( '../assets/icons/registration.svg' );
   }
 
-  .section.validation {
-    background-image: url( '../assets/icons/validation.svg' );
-  }
+  // .section.validation {
+  //   background-image: url( '../assets/icons/validation.svg' );
+  // }
 
-  .section.voucher-submission {
+  .section.save-confirmation {
     background-image: url( '../assets/icons/voucher-submission.svg' );
   }
 

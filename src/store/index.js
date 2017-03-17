@@ -16,15 +16,19 @@ export default new Vuex.Store({
     pipeline: [
       {
         name: 'instructions',
-        locked: false
+        visible: true
       },
       {
         name: 'prices-grid',
-        locked: true
+        visible: true
       },
       {
         name: 'registration-form',
-        locked: true
+        visible: true
+      },
+      {
+        name: 'save-confirmation',
+        visible: true
       }
     ],
 
