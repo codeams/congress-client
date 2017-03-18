@@ -13,8 +13,8 @@
               gotoNextStage()
             '>
             <span class='type-price'>
-              $ {{ registrationType.price }}
-              <span v-if='registrationType.groupal'>p/p</span>
+              $ {{ registrationType.price }} 
+              {{ registrationType.groupal ? 'p/p' : '' }}
             </span>
             <span class='type-name'>{{ registrationType.name }}</span>
           </div>
