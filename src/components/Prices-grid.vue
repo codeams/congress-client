@@ -74,7 +74,7 @@
 </script>
 
 
-<style lang='scss' scoped>
+<style lang='scss'>
 
   .registration-types > .column {
     padding: 20px;
