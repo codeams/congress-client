@@ -3,6 +3,10 @@ export const setPerson = ( { commit }, person ) => {
   commit( 'setPerson', person )
 }
 
+export const setRegistrationType = ( { commit }, registrationType ) => {
+  commit( 'setRegistrationType', registrationType )
+}
+
 export const gotoStage = ( { commit }, stageIndex ) => {
   commit( 'gotoStage', stageIndex )
 }

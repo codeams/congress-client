@@ -3,6 +3,10 @@ export const setPerson = ( state, person ) => {
   state.person = person
 }
 
+export const setRegistrationType = ( state, registrationType ) => {
+  state.registrationType = registrationType
+}
+
 export const gotoStage = ( state, stageIndex ) => {
   state.currentStageIndex = stageIndex
 }

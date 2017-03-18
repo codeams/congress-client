@@ -11,7 +11,20 @@ import * as actions from './actions'
 export default new Vuex.Store({
 
   state: {
-    person: {},
+    person: {
+      degree: '',
+      role: '',
+      firstName: '',
+      lastName: '',
+      institution: '',
+      faculty: '',
+      telephone: {
+        number: '',
+        extension: ''
+      },
+      email: ''
+    },
+    registrationType: '',
 
     pipeline: [
       {

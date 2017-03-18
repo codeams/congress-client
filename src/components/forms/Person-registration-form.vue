@@ -133,7 +133,7 @@
 
 <script>
 
-  import { mapGetters, mapActions } from 'vuex'
+  import { mapActions } from 'vuex'
   import { capitalize } from '../../utils/filters'
 
 
@@ -142,19 +142,7 @@
 
     data() {
       return {
-        person: {
-          degree: '',
-          role: '',
-          firstName: '',
-          lastName: '',
-          institution: '',
-          faculty: '',
-          telephone: {
-            number: '',
-            extension: ''
-          },
-          email: ''
-        }
+        person: {}
       }
     },
 
@@ -164,13 +152,22 @@
         return isSomeNameDefined
           ? this.person.firstName + ' ' + this.person.lastName
           : ''
-      },
-      ...mapGetters (['person'])
+      }
     },
 
-    methods: mapActions (['setPerson']),
+    created () {
+      this.person = this.$store.state.person
+    },
+
+    methods: mapActions ([ 'setPerson' ]),
 
     watch: {
+      person: {
+        handler ( person ) {
+          this.setPerson( person )
+        },
+        deep: true
+      },
       'person.firstName' ( firstName ) {
         this.person.firstName = capitalize( firstName )
       },

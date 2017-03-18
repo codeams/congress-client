@@ -1,4 +1,6 @@
 
+export const registrationType = state => state.registrationType
+
 export const person = state => state.person
 
 export const pipeline = state => state.pipeline
