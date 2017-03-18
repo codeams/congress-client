@@ -23,6 +23,10 @@ export const setDeposit = ( state, deposit ) => {
   state.deposit = deposit
 }
 
+export const setTermsAcceptance = ( state, termsAcceptance ) => {
+  state.termsAcceptance = termsAcceptance
+}
+
 export const gotoStage = ( state, stageIndex ) => {
   state.currentStageIndex = stageIndex
 }

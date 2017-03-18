@@ -23,6 +23,10 @@ export const setDeposit = ( { commit }, deposit ) => {
   commit( 'setDeposit', deposit )
 }
 
+export const setTermsAcceptance = ( { commit }, termsAcceptance ) => {
+  commit( 'setTermsAcceptance', termsAcceptance )
+}
+
 export const gotoStage = ( { commit }, stageIndex ) => {
   commit( 'gotoStage', stageIndex )
 }
