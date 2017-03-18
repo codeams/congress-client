@@ -9,11 +9,11 @@
         <div class='column' v-for='registrationType in prices'>
           <div class='registration-type'
             @click='
-              setRegistrationType( registrationType.key );
+              setRegistrationType( registrationType );
               gotoNextStage()
             '>
             <span class='type-price'>
-              $ {{ registrationType.price }} 
+              $ {{ registrationType.price }}
               {{ registrationType.groupal ? 'p/p' : '' }}
             </span>
             <span class='type-name'>{{ registrationType.name }}</span>

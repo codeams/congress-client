@@ -2,7 +2,7 @@
 import prices from './prices'
 
 export default {
-  registrationType: '',
+  registrationType: {},
 
   person: {
     degree: '',

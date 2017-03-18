@@ -1,5 +1,5 @@
 <template lang='html'>
-  <div id='group-registration-form'>
+  <div id='group-registration-form' v-if='registrationType.groupal'>
 
     <div class='row align-center'>
       <div class='small-12 columns'>
@@ -34,7 +34,7 @@
 
 <script>
 
-  import { mapActions } from 'vuex'
+  import { mapGetters, mapActions } from 'vuex'
 
   export default {
     name: 'Group-registration-form',
@@ -42,6 +42,8 @@
     data () {
       return { group: [] }
     },
+
+    computed: mapGetters ([ 'registrationType' ]),
 
     created () {
       this.group = this.$store.state.group
