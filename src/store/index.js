@@ -4,74 +4,16 @@ import Vuex from 'vuex'
 
 Vue.use( Vuex )
 
+import state from './state'
 import * as getters from './getters'
 import * as mutations from './mutations'
 import * as actions from './actions'
 
 export default new Vuex.Store({
 
-  state: {
-    registrationType: '',
-
-    person: {
-      degree: '',
-      role: '',
-      firstName: '',
-      lastName: '',
-      institution: '',
-      faculty: '',
-      telephone: {
-        number: '',
-        extension: ''
-      },
-      email: ''
-    },
-
-    group: [{ name: '' }],
-
-    deposit: {
-      branch: '',
-      city: '',
-      referenceNumber: '',
-      ammount: '',
-      date: {
-        year: '',
-        month: '',
-        day: ''
-      },
-      time: {
-        hour: '',
-        minute: ''
-      },
-    },
-
-    pipeline: [
-      {
-        name: 'instructions',
-        visible: true
-      },
-      {
-        name: 'prices-grid',
-        visible: true
-      },
-      {
-        name: 'registration-form',
-        visible: true
-      },
-      {
-        name: 'save-confirmation',
-        visible: true
-      }
-    ],
-
-    currentStageIndex: 0
-
-  },
-
+  state: state,
   getters,
-
   mutations,
-
   actions
 
 })
