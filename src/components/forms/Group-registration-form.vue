@@ -17,8 +17,15 @@
               <span>Nombre completo</span>
 
               <input type='text' v-model='groupMember.name'
-                @keyup.enter='addGroupMember()'
-                @keyup.delete='deleteGroupMember( $event, index )'
+                @keyup.enter='
+                  addGroupMember();
+                  focusLastInput()
+                '
+                @keyup.delete='
+                  deleteGroupMember( $event, index );
+                  focusLastInput()
+                '
+                :id='"groupMember-" + index'
                 placeholder='Agregar nuevo miembro'
               >
             </label>
@@ -34,6 +41,7 @@
 
 <script>
 
+  import Vue from 'vue'
   import { mapGetters, mapActions } from 'vuex'
 
   export default {
@@ -53,6 +61,13 @@
       deleteGroupMember ( e, index ) {
         if ( this.group.length > 1 && ! e.target.value )
           this.$store.dispatch( 'deleteGroupMember', index )
+      },
+
+      focusLastInput () {
+        Vue.nextTick(() => {
+          let lastGroupMemberInputId = "groupMember-" + (this.group.length-1)
+          document.getElementById( lastGroupMemberInputId ).focus()
+        })
       },
 
       ...mapActions ([
