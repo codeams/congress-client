@@ -1,4 +1,6 @@
 
+import prices from './prices'
+
 export default {
   registrationType: '',
 
@@ -35,4 +37,6 @@ export default {
   },
 
   termsAcceptance: false,
+
+  prices: prices,
 }
