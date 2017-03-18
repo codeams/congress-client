@@ -34,6 +34,6 @@ export default [
     key: 'academic',
     price: 3800,
     name: 'Académico de universidad',
-    groupal: true
+    groupal: false
   },
 ]
