@@ -19,6 +19,10 @@ export const deleteGroupMember = ( state, index ) => {
   state.group.splice( index, 1 )
 }
 
+export const setDeposit = ( state, deposit ) => {
+  state.deposit = deposit
+}
+
 export const gotoStage = ( state, stageIndex ) => {
   state.currentStageIndex = stageIndex
 }

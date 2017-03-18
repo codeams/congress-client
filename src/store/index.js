@@ -12,6 +12,7 @@ export default new Vuex.Store({
 
   state: {
     registrationType: '',
+
     person: {
       degree: '',
       role: '',
@@ -25,7 +26,24 @@ export default new Vuex.Store({
       },
       email: ''
     },
+
     group: [{ name: '' }],
+
+    deposit: {
+      branch: '',
+      city: '',
+      referenceNumber: '',
+      ammount: '',
+      date: {
+        year: '',
+        month: '',
+        day: ''
+      },
+      time: {
+        hour: '',
+        minute: ''
+      },
+    },
 
     pipeline: [
       {

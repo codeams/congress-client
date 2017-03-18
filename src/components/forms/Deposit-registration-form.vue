@@ -15,7 +15,8 @@
             <label>
               <span>Sucursal</span>
 
-              <input type='text' placeholder='Obligatorio'>
+              <input type='text' v-model='deposit.branch'
+                placeholder='Obligatorio'>
             </label>
           </div>
 
@@ -23,7 +24,8 @@
             <label>
               <span>Ciudad</span>
 
-              <input type='text' placeholder='Obligatorio'>
+              <input type='text' v-model='deposit.city'
+                placeholder='Obligatorio'>
             </label>
           </div>
         </div>
@@ -33,7 +35,8 @@
             <label>
               <span>No. de referencia</span>
 
-              <input type='text' placeholder='Obligatorio'>
+              <input type='text' v-model='deposit.referenceNumber'
+                placeholder='Obligatorio'>
             </label>
           </div>
 
@@ -41,7 +44,8 @@
             <label>
               <span>Monto</span>
 
-              <input type='text' placeholder='Obligatorio'>
+              <input type='text' v-model='deposit.ammount'
+                placeholder='Obligatorio'>
             </label>
           </div>
         </div>
@@ -51,7 +55,7 @@
             <label>
               <span>Año</span>
 
-              <select>
+              <select v-model='deposit.date.year'>
                 <option>2017</option>
                 <option>2016</option>
                 <option>2015</option>
@@ -63,7 +67,7 @@
             <label>
               <span>Mes</span>
 
-              <select>
+              <select v-model='deposit.date.month'>
                 <option value='1'>Enero</option>
                 <option value='2'>Febrero</option>
                 <option value='3'>Marzo</option>
@@ -84,7 +88,7 @@
             <label>
               <span>Día</span>
 
-              <select>
+              <select v-model='deposit.date.day'>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -124,7 +128,7 @@
             <label>
               <span>Hora</span>
 
-              <select>
+              <select v-model='deposit.time.hour'>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -157,7 +161,7 @@
             <label>
               <span>Minuto</span>
 
-              <select>
+              <select v-model='deposit.time.minute'>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -231,10 +235,27 @@
 
 
 <script>
+
+  import { mapActions } from 'vuex'
+
   export default {
     name: 'Deposit-registration-form',
+
     data () {
-      return {}
-    }
+      return { deposit: {} }
+    },
+
+    created () {
+      this.deposit = this.$store.state.deposit
+    },
+
+    watch: {
+      deposit: {
+        handler ( deposit ) { this.setDeposit( deposit ) }
+      }
+    },
+
+    methods: mapActions ([ 'setDeposit' ]),
   }
+
 </script>

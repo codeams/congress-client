@@ -19,6 +19,10 @@ export const deleteGroupMember = ( { commit }, index ) => {
   commit( 'deleteGroupMember', index )
 }
 
+export const setDeposit = ( { commit }, deposit ) => {
+  commit( 'setDeposit', deposit )
+}
+
 export const gotoStage = ( { commit }, stageIndex ) => {
   commit( 'gotoStage', stageIndex )
 }
