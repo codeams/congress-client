@@ -23,7 +23,7 @@
 
 <script>
 
-  import { mapGetters, mapActions } from 'vuex'
+  import { mapGetters } from 'vuex'
 
   import Top from './components/Top'
   import Navigation from './components/Navigation'
@@ -36,6 +36,7 @@
 
   export default {
     name: 'Congress',
+
     data () {
       return {}
     },
@@ -49,16 +50,7 @@
       'bottom': Bottom
     },
 
-    computed: mapGetters ([
-      'pipeline',
-      'currentStage'
-    ]),
-
-    methods: mapActions ([
-      'gotoStage',
-      'gotoNextStage',
-      'gotoPrevStage'
-    ])
+    computed: mapGetters ([ 'currentStage' ]),
   }
 
 </script>
