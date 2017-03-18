@@ -42,7 +42,7 @@
 </script>
 
 
-<style lang='scss'>
+<style lang='scss' scoped>
 
   #registration-form .section-title {
     text-align: left;
