@@ -13,6 +13,8 @@ export const pipeline = state => state.pipeline
 
 export const currentStageIndex = state => state.currentStageIndex
 
+export const prices = state => state.prices
+
 export const currentStage = state => {
   return state.pipeline[ state.currentStageIndex ]
 }

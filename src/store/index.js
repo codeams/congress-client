@@ -11,7 +11,7 @@ import * as actions from './actions'
 
 export default new Vuex.Store({
 
-  state: state,
+  state,
   getters,
   mutations,
   actions
