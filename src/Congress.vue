@@ -109,6 +109,11 @@
   }
 
   @media #{$small-only} {
+    .content {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
     .section-title {
       font-size: 1.5em;
     }

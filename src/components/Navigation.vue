@@ -54,10 +54,10 @@
 </script>
 
 
-<style lang='scss'>
+<style lang='scss' scoped>
 
-  .navigation {
-    margin-bottom: 60px;
+  #section-navigation {
+    margin-bottom: 40px;
     text-align: center;
   }
 
@@ -126,14 +126,12 @@
   }
 
 
-  /* Small only */
   @media #{$small-only} {
     .navigation .congress-title {
       margin-bottom: 10px;
     }
   }
 
-  /* Medium only */
   @media #{$medium-only} {
     .navigation .congress-title {
       margin-bottom: 10px;

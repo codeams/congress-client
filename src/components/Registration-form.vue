@@ -84,9 +84,9 @@
     margin-bottom: 0;
   }
 
-  .section-content {
-    padding-top: 20px;
-  }
+  // .section-content {
+  //   padding-top: 20px;
+  // }
 
   .text-field-container span,
   .select-field-container span {
@@ -136,6 +136,12 @@
     width: 1rem;
     height: 1rem;
     margin-bottom: 0;
+  }
+
+  @media #{$small-only} {
+    #registration-form .section-title {
+      text-align: center;
+    }
   }
 
 </style>

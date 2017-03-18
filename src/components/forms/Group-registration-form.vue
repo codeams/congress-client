@@ -10,7 +10,7 @@
     <div class='section-content'>
 
       <div class='registration-form'>
-        <div class='align-center row'>
+        <div class='align-center row-collapsed'>
           <div v-for='groupMember, index in group'
             class='text-field-container small-12 columns'>
             <label>
@@ -70,3 +70,30 @@
   }
 
 </script>
+
+
+<style lang='scss' scoped>
+
+  #group-registration-form {
+
+    .text-field-container:last-of-type {
+      position: relative;
+      padding-bottom: 20px;
+
+      input[type="text"] {
+        margin-bottom: 0;
+      }
+
+      &::before {
+        content: 'Presiona enter para agregar un nuevo miembro.';
+        position: absolute;
+        bottom: 0px;
+        left: 25px;
+        line-height: 20px;
+        color: $secondary-color;
+        opacity: 0.7;
+      }
+    }
+  }
+
+</style>
