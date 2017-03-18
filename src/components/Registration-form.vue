@@ -11,9 +11,11 @@
 
     <div class='align-center row'>
       <div class='button-container small-12 medium-6 text-right columns'>
-        <input type='button' class='button secondary large' value='Regresar'>
+        <input type='button' @click='gotoPrevStage'
+          class='button secondary large' value='Regresar'>
       </div><div class='button-container small-12 medium-6 text-left columns'>
-        <input type='button' class='button primary large' value='Continuar'>
+        <input type='button' @click='gotoNextStage'
+          class='button primary large' value='Continuar'>
       </div>
     </div>
 
@@ -22,6 +24,9 @@
 
 
 <script>
+
+  import { mapActions } from 'vuex'
+
   import PersonRegistrationForm from './forms/Person-registration-form'
   import GroupRegistrationForm from './forms/Group-registration-form'
   import DepositRegistrationForm from './forms/Deposit-registration-form'
@@ -29,15 +34,22 @@
 
   export default {
     name: 'Registration-form',
+
     data () {
       return {}
     },
+
     components: {
       PersonRegistrationForm,
       GroupRegistrationForm,
       DepositRegistrationForm,
       TermsAcceptanceForm
-    }
+    },
+
+    methods: mapActions ([
+      'gotoNextStage',
+      'gotoPrevStage'
+    ]),
   }
 </script>
 
