@@ -1,10 +1,22 @@
 
+export const setRegistrationType = ( { commit }, registrationType ) => {
+  commit( 'setRegistrationType', registrationType )
+}
+
 export const setPerson = ( { commit }, person ) => {
   commit( 'setPerson', person )
 }
 
-export const setRegistrationType = ( { commit }, registrationType ) => {
-  commit( 'setRegistrationType', registrationType )
+export const setGroup = ( { commit }, group ) => {
+  commit( 'setGroup', group )
+}
+
+export const addGroupMember = ( { commit } ) => {
+  commit( 'addGroupMember' )
+}
+
+export const deleteGroupMember = ( { commit }, index ) => {
+  commit( 'deleteGroupMember', index )
 }
 
 export const gotoStage = ( { commit }, stageIndex ) => {

@@ -1,10 +1,22 @@
 
+export const setRegistrationType = ( state, registrationType ) => {
+  state.registrationType = registrationType
+}
+
 export const setPerson = ( state, person ) => {
   state.person = person
 }
 
-export const setRegistrationType = ( state, registrationType ) => {
-  state.registrationType = registrationType
+export const setGroup = ( state, group ) => {
+  state.group = group
+}
+
+export const addGroupMember = ( state ) => {
+  state.group.push({ name: '' })
+}
+
+export const deleteGroupMember = ( state, index ) => {
+  state.group.splice( index, 1 )
 }
 
 export const gotoStage = ( state, stageIndex ) => {
