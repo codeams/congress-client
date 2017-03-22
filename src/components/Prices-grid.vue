@@ -1,4 +1,4 @@
-<template>
+<template lang='html'>
   <div id='prices-grid'>
     <span class='section-title'>Selección de tipo de registro</span>
 
