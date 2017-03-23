@@ -100,7 +100,7 @@
     background-image: url( '../assets/icons/prices.svg' );
   }
 
-  .section.registration-form {
+  .section.registration-data {
     background-image: url( '../assets/icons/registration.svg' );
   }
 

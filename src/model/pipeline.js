@@ -9,7 +9,7 @@ export default [
     visible: true
   },
   {
-    name: 'registration-form',
+    name: 'registration-data',
     visible: true
   },
   {

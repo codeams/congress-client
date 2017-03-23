@@ -31,7 +31,7 @@
 
   import Instructions from './components/Instructions'
   import PricesGrid from './components/Prices-grid'
-  import RegistrationForm from './components/Registration-form'
+  import RegistrationData from './components/Registration-Data'
 
 
   export default {
@@ -46,8 +46,8 @@
       'navigation': Navigation,
       'instructions': Instructions,
       'prices-grid': PricesGrid,
-      'registration-form': RegistrationForm,
-      'bottom': Bottom
+      'registration-data': RegistrationData,
+      'bottom': Bottom,
     },
 
     computed: mapGetters ([ 'currentStage' ]),

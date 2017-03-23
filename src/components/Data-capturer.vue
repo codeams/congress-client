@@ -1,13 +1,7 @@
 <template lang='html'>
-  <div id='registration-form'>
+  <div class='data-capturer'>
 
-    <person-registration-form></person-registration-form>
-
-    <group-registration-form></group-registration-form>
-
-    <deposit-registration-form></deposit-registration-form>
-
-    <terms-acceptance-form></terms-acceptance-form>
+    <slot></slot>
 
     <div class='align-center row'>
       <div class='button-container small-12 medium-6 text-right columns'>
@@ -51,22 +45,22 @@
       'gotoPrevStage'
     ]),
   }
-  
+
 </script>
 
 
 <style lang='scss'>
 
-  #registration-form .section-title {
+  .data-capturer .section-title {
     text-align: left;
     margin-bottom: 5px;
   }
 
-  #registration-form .section-content {
+  .data-capturer .section-content {
     margin-bottom: 60px;
   }
 
-  #registration-form .content {
+  .data-capturer .content {
     padding-left: 0;
     padding-right: 0;
   }
@@ -140,7 +134,7 @@
   }
 
   @media #{$small-only} {
-    #registration-form .section-title {
+    .data-capturer .section-title {
       text-align: center;
     }
   }
