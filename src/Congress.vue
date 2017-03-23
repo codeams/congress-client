@@ -9,7 +9,7 @@
 
       <div class='content'>
         <transition name='component-fade' mode='out-in'>
-          <component :is='this.currentStage.name'></component>
+          <component :is='currentStage.name'></component>
         </transition>
       </div>
 
