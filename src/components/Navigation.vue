@@ -1,4 +1,4 @@
-<template>
+<template lang='html'>
   <div id='section-navigation'>
     <div class='navigation align-center row'>
       <div class='small-12 large-6 columns-collapsed'>
