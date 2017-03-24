@@ -80,20 +80,20 @@
             </label>
           </div>
 
-          <div class='text-field-container small-12 medium-2 columns'>
+          <div class='text-field-container small-12 medium-4 columns'>
             <label>
               <span>Estado</span>
 
-              <input type='text' placeholder='Opcional'
-                v-model='invoice.office.state'>
+              <input type='text' placeholder='Obligatorio'
+              v-model='invoice.office.state'>
             </label>
           </div>
 
-          <div class='text-field-container small-12 medium-5 columns'>
+          <div class='text-field-container small-12 medium-3 columns'>
             <label>
               <span>Código postal</span>
 
-              <input type='text' placeholder='Obligatorio'
+              <input type='text' placeholder='Opcional'
                 v-model='invoice.office.postalCode'>
             </label>
           </div>
