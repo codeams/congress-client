@@ -7,6 +7,8 @@ export const group = state => state.group
 
 export const deposit = state => state.deposit
 
+export const invoice = state => state.invoice
+
 export const termsAcceptance = state => state.termsAcceptance
 
 export const pipeline = state => state.pipeline

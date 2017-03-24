@@ -38,5 +38,19 @@ export default {
 
   termsAcceptance: false,
 
+  invoice: {
+    rfc: '',
+    businessName: '',
+    office: {
+      street: '',
+      externalNumber: '',
+      internalNumber: '',
+      neighborhood: '',
+      district: '',
+      state: '',
+      postalCode: '',
+    }
+  },
+
   prices: prices,
 }

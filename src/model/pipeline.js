@@ -13,7 +13,11 @@ export default [
     visible: true
   },
   {
-    name: 'save-confirmation',
+    name: 'payment-data',
+    visible: true
+  },
+  {
+    name: 'save',
     visible: true
   }
 ]

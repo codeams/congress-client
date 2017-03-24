@@ -23,6 +23,10 @@ export const setDeposit = ( { commit }, deposit ) => {
   commit( 'setDeposit', deposit )
 }
 
+export const setInvoice = ( { commit }, invoice ) => {
+  commit( 'setInvoice', invoice )
+}
+
 export const setTermsAcceptance = ( { commit }, termsAcceptance ) => {
   commit( 'setTermsAcceptance', termsAcceptance )
 }
