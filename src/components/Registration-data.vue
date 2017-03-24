@@ -6,8 +6,6 @@
 
       <group-registration-form></group-registration-form>
 
-      <deposit-registration-form></deposit-registration-form>
-
       <terms-acceptance-form></terms-acceptance-form>
     </data-capturer>
 
@@ -24,7 +22,7 @@
   import TermsAcceptanceForm from './forms/Terms-acceptance-form'
 
   export default {
-    name: 'Data-capturer',
+    name: 'Registration-data',
 
     data () {
       return {}
@@ -32,7 +30,7 @@
 
     components: {
       DataCapturer,
-      
+
       PersonRegistrationForm,
       GroupRegistrationForm,
       DepositRegistrationForm,

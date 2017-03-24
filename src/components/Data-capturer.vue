@@ -27,7 +27,7 @@
   import TermsAcceptanceForm from './forms/Terms-acceptance-form'
 
   export default {
-    name: 'Registration-form',
+    name: 'Data-capturer',
 
     data () {
       return {}
