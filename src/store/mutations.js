@@ -23,6 +23,10 @@ export const setDeposit = ( state, deposit ) => {
   state.deposit = deposit
 }
 
+export const setInvoice = ( state, invoice ) => {
+  state.invoice = invoice
+}
+
 export const setTermsAcceptance = ( state, termsAcceptance ) => {
   state.termsAcceptance = termsAcceptance
 }
