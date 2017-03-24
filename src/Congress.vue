@@ -32,6 +32,7 @@
   import Instructions from './components/Instructions'
   import PricesGrid from './components/Prices-grid'
   import RegistrationData from './components/Registration-Data'
+  import PaymentData from './components/Payment-Data'
 
 
   export default {
@@ -47,6 +48,7 @@
       'instructions': Instructions,
       'prices-grid': PricesGrid,
       'registration-data': RegistrationData,
+      'payment-data': PaymentData,
       'bottom': Bottom,
     },
 

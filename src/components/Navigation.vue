@@ -97,19 +97,19 @@
   }
 
   .section.prices-grid {
-    background-image: url( '../assets/icons/prices.svg' );
+    background-image: url( '../assets/icons/prices-grid.svg' );
   }
 
   .section.registration-data {
-    background-image: url( '../assets/icons/registration.svg' );
+    background-image: url( '../assets/icons/registration-data.svg' );
   }
 
-  // .section.validation {
-  //   background-image: url( '../assets/icons/validation.svg' );
-  // }
+  .section.payment-data {
+    background-image: url( '../assets/icons/payment-data.svg' );
+  }
 
-  .section.save-confirmation {
-    background-image: url( '../assets/icons/voucher-submission.svg' );
+  .section.save {
+    background-image: url( '../assets/icons/save.svg' );
   }
 
   .navigation .congress-title {
