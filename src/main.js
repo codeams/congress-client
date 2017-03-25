@@ -1,7 +1,12 @@
 
 import Vue from 'vue'
+import VeeValidate from 'vee-validate'
 import store from './store'
 import Congress from './Congress'
+
+Vue.use( VeeValidate, {
+  
+})
 
 
 Vue.config.productionTip = false
