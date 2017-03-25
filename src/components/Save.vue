@@ -15,8 +15,8 @@
           </p>
           <p>
             El registro se ha completado exitosamente. Deberás en los próximos
-            minutos recibir un email de confirmación en la cuenta de correo
-            electrónico especificada.
+            minutos recibir un email de confirmación en
+            <strong>{{ this.person.email }}</strong>.
           </p>
         </div>
       </div>
@@ -28,12 +28,16 @@
 
 <script>
 
+  import { mapGetters } from 'vuex'
+
   export default {
     name: 'Save',
 
     data () {
       return {}
-    }
+    },
+
+    computed: mapGetters ([ 'person' ])
   }
 
 </script>
