@@ -148,9 +148,11 @@
 
     computed: {
       namePreview () {
-        let isSomeNameDefined = this.person.firstName || this.person.lastName
+        let isSomeNameDefined =
+          this.person.firstName || this.person.lastName || this.person.degree
         return isSomeNameDefined
-          ? this.person.firstName + ' ' + this.person.lastName
+          ? this.person.degree + ' ' + this.person.firstName + ' '
+            + this.person.lastName
           : ''
       }
     },
