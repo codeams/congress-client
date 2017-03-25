@@ -33,6 +33,7 @@
   import PricesGrid from './components/Prices-grid'
   import RegistrationData from './components/Registration-Data'
   import PaymentData from './components/Payment-Data'
+  import Save from './components/Save'
 
 
   export default {
@@ -49,6 +50,7 @@
       'prices-grid': PricesGrid,
       'registration-data': RegistrationData,
       'payment-data': PaymentData,
+      'save': Save,
       'bottom': Bottom,
     },
 
