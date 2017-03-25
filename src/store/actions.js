@@ -46,3 +46,8 @@ export const gotoNextStage = ( { commit } ) => {
 export const gotoPrevStage = ( { commit } ) => {
   commit( 'gotoPrevStage' )
 }
+
+export const setRegistrationCompleteness =
+  ( { commit }, registrationCompleteness ) => {
+    commit( 'setRegistrationCompleteness', registrationCompleteness )
+  }

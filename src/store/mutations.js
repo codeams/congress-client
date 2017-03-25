@@ -47,3 +47,8 @@ export const gotoNextStage = ( state ) => {
 export const gotoPrevStage = ( state ) => {
   state.currentStageIndex--
 }
+
+export const setRegistrationCompleteness =
+  ( state, registrationCompleteness ) => {
+    state.isRegistrationComplete = registrationCompleteness
+  }

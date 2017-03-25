@@ -8,6 +8,8 @@ export default {
 
   currentStageIndex: 0,
 
+  isRegistrationComplete: false,
+
   ...model
 
 }

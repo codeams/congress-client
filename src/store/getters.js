@@ -20,3 +20,5 @@ export const prices = state => state.prices
 export const currentStage = state => {
   return state.pipeline[ state.currentStageIndex ]
 }
+
+export const isRegistrationComplete = state => state.isRegistrationComplete
