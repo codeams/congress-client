@@ -82,6 +82,10 @@
               <select v-model='person.institution'
                 :class='{ "is-default": !person.institution }'>
                 <option value=''>Obligatorio</option>
+                <option v-for='institution in institutionsList'
+                  :value='institution.name'>
+                  {{ institution.name }}
+                </option>
               </select>
             </label>
           </div>
@@ -136,13 +140,16 @@
   import { mapActions } from 'vuex'
   import { capitalize } from '../../utils/filters'
 
+  import institutionsList from '../../assets/lists/institutions-list.json'
+
 
   export default {
     name: 'Person-registration-form',
 
     data() {
       return {
-        person: {}
+        person: {},
+        institutionsList: institutionsList,
       }
     },
 
