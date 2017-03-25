@@ -28,7 +28,7 @@
 
 <script>
 
-  import { mapGetters } from 'vuex'
+  import { mapGetters, mapActions } from 'vuex'
 
   export default {
     name: 'Save',
@@ -37,7 +37,13 @@
       return {}
     },
 
-    computed: mapGetters ([ 'person' ])
+    computed: mapGetters ([ 'person' ]),
+
+    methods: mapActions ([ 'setRegistrationCompleteness' ]),
+
+    created () {
+      this.setRegistrationCompleteness( true )
+    },
   }
 
 </script>
@@ -48,6 +54,10 @@
   #save {
     .text {
       font-size: 22px;
+
+      strong {
+        color: $primary-color;
+      }
     }
   }
 

@@ -1,5 +1,5 @@
 <template lang='html'>
-  <div id='section-navigation'>
+  <div id='section-navigation'  v-if='! isRegistrationComplete'>
     <div class='navigation align-center row'>
       <div class='small-12 large-6 columns-collapsed'>
         <span class='congress-title'>
@@ -44,7 +44,8 @@
     computed: mapGetters ([
       'pipeline',
       'currentStageIndex',
-      'currentStage'
+      'currentStage',
+      'isRegistrationComplete'
     ]),
     methods: mapActions ([
       'gotoStageNamed'
