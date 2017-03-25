@@ -11,7 +11,7 @@
       <div class='text row'>
         <div class='small-12 columns'>
           <p>
-            ¡Gracias por registrarte al CONISOFT!
+            ¡Gracias por registrarte al <strong>CONISOFT</strong>!
           </p>
           <p>
             El registro se ha completado exitosamente. Deberás en los próximos
@@ -52,6 +52,10 @@
 <style lang='scss' scoped>
 
   #save {
+    .section-title{
+      text-align: left;
+    }
+
     .text {
       font-size: 22px;
 
