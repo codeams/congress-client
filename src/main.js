@@ -5,7 +5,7 @@ import store from './store'
 import Congress from './Congress'
 
 Vue.use( VeeValidate, {
-  
+  delay: 500
 })
 
 
