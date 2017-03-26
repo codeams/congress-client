@@ -55,9 +55,9 @@
   }
 
   @media #{$small-only} {
-    .top {
+    #top {
       height: 100px;
     }
   }
-  
+
 </style>
