@@ -111,7 +111,7 @@
         <div class='row'>
           <div class='text-field-container small-12 medium-7 columns'>
             <label :class="{ 'error' : errors.has('institution') }">
-              <span>Universidad / Institución</span>
+              <span>Universidad o Institución</span>
 
               <select name='institution' v-model='person.institution'
                 v-validate='"required"'
@@ -127,7 +127,7 @@
 
           <div class='text-field-container small-12 medium-5 columns'>
             <label :class="{ 'error' : errors.has('faculty') }">
-              <span>Facultad</span>
+              <span>Facultad, campus o plantel</span>
 
               <input name='faculty' type='text' placeholder='Opcional'
                 v-model='person.faculty' v-validate='"max:60"'>
