@@ -20,6 +20,7 @@
 <script>
 
   import bus from '../utils/bus'
+  import windowController from '../utils/window-controller'
 
   import { mapActions } from 'vuex'
 
@@ -67,6 +68,8 @@
 
         if ( ! this.errors.any() ) {
           this.gotoNextStage()
+        } else {
+          windowController.scrollToTop()
         }
       },
 
