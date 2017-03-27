@@ -13,7 +13,7 @@
         <div class='align-center row-collapsed'>
           <div v-for='groupMember, index in group'
             class='text-field-container small-12 columns'>
-            <label>
+            <label :class="{ 'error' : errors.has('groupMember-' + index) }">
               <span>Nombre completo</span>
 
               <input type='text' v-model='groupMember.name'
@@ -26,6 +26,8 @@
                   focusLastInput()
                 '
                 :id='"groupMember-" + index'
+                :name='"groupMember-" + index'
+                v-validate='"min:3|max:60"'
                 placeholder='Agregar nuevo miembro'
               >
             </label>
@@ -41,6 +43,9 @@
 
 <script>
 
+  import { find, propEq } from 'ramda'
+  import bus from '../../utils/bus'
+
   import Vue from 'vue'
   import { mapGetters, mapActions } from 'vuex'
 
@@ -53,11 +58,37 @@
 
     computed: mapGetters ([ 'registrationType' ]),
 
+    mounted() {
+
+      bus.$on( 'validate', this.onValidate )
+
+      this.$watch( () => this.errors.errors, ( newValue, oldValue ) => {
+        const newErrors = newValue.filter( error =>
+          find( propEq( 'field', error.field ) )( oldValue ) === undefined
+        )
+
+        const oldErrors = oldValue.filter( error =>
+          find( propEq( 'field', error.field ) )( newValue ) === undefined
+        )
+
+        bus.$emit( 'errors-changed', newErrors, oldErrors )
+      })
+
+    },
+
     created () {
       this.group = this.$store.state.group
     },
 
     methods: {
+      onValidate() {
+        this.$validator.validateAll().then(() => {}).catch(() => {})
+
+        if ( this.errors.any() ) {
+          bus.$emit( 'errors-changed', this.errors.errors )
+        }
+      },
+
       deleteGroupMember ( e, index ) {
         if ( this.group.length > 1 && ! e.target.value )
           this.$store.dispatch( 'deleteGroupMember', index )
@@ -74,6 +105,11 @@
         'setGroup',
         'addGroupMember'
       ]),
+    },
+
+    beforeDestroy() {
+      bus.$emit( 'errors-changed', [], this.errors.errors )
+      bus.$off( 'validate', this.onValidate )
     },
 
     watch: {
@@ -108,6 +144,17 @@
         color: $secondary-color;
         opacity: 0.7;
       }
+    }
+  }
+
+  .error {
+    input,
+    select {
+      border-color: red !important;
+    }
+
+    span {
+      color: red !important;
     }
   }
 
