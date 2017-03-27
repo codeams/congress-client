@@ -8,7 +8,7 @@
         <input type='button' @click='gotoPrevStage'
           class='button secondary large' value='Regresar'>
       </div><div class='button-container small-12 medium-6 text-left columns'>
-        <input type='button' @click='gotoNextStage'
+        <input type='button' @click='submit'
           class='button primary large' value='Continuar'>
       </div>
     </div>
@@ -18,6 +18,8 @@
 
 
 <script>
+
+  import bus from '../utils/bus'
 
   import { mapActions } from 'vuex'
 
@@ -40,10 +42,39 @@
       TermsAcceptanceForm
     },
 
-    methods: mapActions ([
-      'gotoNextStage',
-      'gotoPrevStage'
-    ]),
+    mounted() {
+      this.$on( 'veeValidate', () => {
+        bus.$emit( 'validate' )
+      })
+
+      bus.$on('errors-changed', ( newErrors, oldErrors ) => {
+        newErrors.forEach( error => {
+          if ( ! this.errors.has( error.field ) ) {
+            this.errors.add( error.field, error.msg )
+          }
+        })
+        if ( oldErrors ) {
+          oldErrors.forEach( error => {
+            this.errors.remove( error.field )
+          })
+        }
+      })
+    },
+
+    methods: {
+      submit() {
+        bus.$emit( 'validate' )
+
+        if ( ! this.errors.any() ) {
+          this.gotoNextStage()
+        }
+      },
+
+      ...mapActions ([
+        'gotoNextStage',
+        'gotoPrevStage'
+      ]),
+    },
   }
 
 </script>
