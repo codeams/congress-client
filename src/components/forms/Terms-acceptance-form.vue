@@ -91,6 +91,7 @@
   }
 
   .checkbox-container label {
+    padding: 0 20px;
     transition: background-color .25s ease-in-out;
   }
 
