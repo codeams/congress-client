@@ -122,6 +122,7 @@
     padding-left: 15px;
     font-size: 1.1rem;
     color: #00234e;
+    transition: color .25s ease-in-out;
   }
 
   input[type="text"],
