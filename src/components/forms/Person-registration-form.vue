@@ -176,14 +176,16 @@
 
       bus.$on( 'validate', this.onValidate )
 
-      this.$watch(() => this.errors.errors, (newValue, oldValue) => {
-        const newErrors = newValue.filter(error =>
-          find(propEq('field', error.field))(oldValue) === undefined
+      this.$watch( () => this.errors.errors, ( newValue, oldValue ) => {
+        const newErrors = newValue.filter( error =>
+          find( propEq( 'field', error.field ) )( oldValue ) === undefined
         )
-        const oldErrors = oldValue.filter(error =>
-          find(propEq('field', error.field))(newValue) === undefined
+
+        const oldErrors = oldValue.filter( error =>
+          find( propEq( 'field', error.field ) )( newValue ) === undefined
         )
-        bus.$emit('errors-changed', newErrors, oldErrors)
+
+        bus.$emit( 'errors-changed', newErrors, oldErrors )
       })
 
     },
@@ -194,12 +196,7 @@
 
     methods: {
       onValidate() {
-
-        this.$validator.validateAll().then(() => {
-
-        }).catch(() => {
-
-        })
+        this.$validator.validateAll().then(() => {}).catch(() => {})
 
         if ( this.errors.any() ) {
           bus.$emit( 'errors-changed', this.errors.errors )
@@ -210,8 +207,8 @@
     },
 
     beforeDestroy() {
-      bus.$emit('errors-changed', [], this.errors.errors)
-      bus.$off('validate', this.onValidate)
+      bus.$emit( 'errors-changed', [], this.errors.errors )
+      bus.$off( 'validate', this.onValidate )
     },
 
     watch: {
