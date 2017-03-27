@@ -9,6 +9,8 @@ export default {
     role: '',
     firstName: '',
     lastName: '',
+    state: '',
+    gender: '',
     institution: '',
     faculty: '',
     telephone: {

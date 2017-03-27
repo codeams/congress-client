@@ -13,7 +13,7 @@
         <div class='row'>
           <div class='select-field-container small-12 medium-6 columns'>
             <label :class="{ 'error' : errors.has('degree') }">
-              <span>Grado</span>
+              <span>Título</span>
 
               <select name='degree' v-model='person.degree'
                 v-validate='"required"'
@@ -72,6 +72,38 @@
 
               <input type='text' :value='namePreview'
                 disabled='disabled' placeholder='Completado automáticamente'>
+            </label>
+          </div>
+        </div>
+
+        <div class='row'>
+          <div class='select-field-container small-12 medium-6 columns'>
+            <label :class="{ 'error' : errors.has('state') }">
+              <span>Estado donde reside</span>
+
+              <select name='state' v-model='person.state'
+                v-validate='"required|max:40"'
+                :class='{ "is-default": !person.state }'>
+                <option value=''>Obligatorio</option>
+                <option v-for='state in statesList'
+                  :value='state'>
+                  {{ state }}
+                </option>
+              </select>
+            </label>
+          </div>
+
+          <div class='select-field-container small-12 medium-6 columns'>
+            <label :class="{ 'error' : errors.has('gender') }">
+              <span>Género</span>
+
+              <select name='gender' v-model='person.gender'
+                v-validate='"required|max:40"'
+                :class='{ "is-default": !person.gender }'>
+                <option value=''>Obligatorio</option>
+                <option value='male'>Masculino</option>
+                <option value='female'>Femenino</option>
+              </select>
             </label>
           </div>
         </div>
@@ -148,6 +180,7 @@
   import { mapActions } from 'vuex'
   import { capitalize } from '../../utils/filters'
 
+  import statesList from '../../assets/lists/states-list.json'
   import institutionsList from '../../assets/lists/institutions-list.json'
 
 
@@ -157,6 +190,7 @@
     data() {
       return {
         person: {},
+        statesList: statesList,
         institutionsList: institutionsList,
       }
     },
