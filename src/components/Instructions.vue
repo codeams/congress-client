@@ -1,4 +1,4 @@
-<template>
+<template lang='html'>
   <div id='instructions'>
 
     <div class='row'>
