@@ -3,7 +3,7 @@
 
     <data-capturer>
       <deposit-registration-form></deposit-registration-form>
-      <Invoice-registration-form></Invoice-registration-form>
+      <!-- <Invoice-registration-form></Invoice-registration-form> -->
     </data-capturer>
 
   </div>

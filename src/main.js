@@ -4,7 +4,7 @@ import VeeValidate from 'vee-validate'
 import store from './store'
 import Congress from './Congress'
 
-Vue.use( VeeValidate, {
+Vue.use(VeeValidate, {
   delay: 500
 })
 
@@ -16,5 +16,5 @@ new Vue({
   el: '#congress',
   store,
   template: '<Congress/>',
-  components: { Congress },
+  components: { Congress }
 })
