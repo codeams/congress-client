@@ -28,6 +28,8 @@
 
 <script>
 
+  import Axios from 'axios'
+  import RequestTransformers from '@/transformers/Request-transformers'
   import { mapGetters, mapActions } from 'vuex'
 
   export default {
@@ -37,12 +39,30 @@
       return {}
     },
 
-    computed: mapGetters ([ 'person' ]),
+    computed: mapGetters ([
+      'person',
+      'group',
+      'deposit'
+    ]),
 
     methods: mapActions ([ 'setRegistrationCompleteness' ]),
 
     created () {
       this.setRegistrationCompleteness( true )
+
+      let person = RequestTransformers.PersonTransformer(this.person)
+      let group = RequestTransformers.GroupTransformer(this.group)
+      let deposit = RequestTransformers.DepositTransformer(this.deposit)
+
+      let request = {
+        person,
+        group,
+        deposit
+      }
+
+      request = RequestTransformers.RequestTransformer(request)
+
+      console.log(request)
     },
   }
 

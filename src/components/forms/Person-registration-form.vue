@@ -19,11 +19,11 @@
                 v-validate='"required"'
                 :class='{ "is-default": !person.degree }'>
                 <option value=''>Obligatorio</option>
-                <option value='Dr.'>Doctor</option>
-                <option value='Mtro.'>Maestro</option>
-                <option value='Lic.'>Licenciado</option>
-                <option value='Ing.'>Ingeniero</option>
-                <option value='Prof.'>Profesor</option>
+                <option value='doctor'>Doctor</option>
+                <option value='maestro'>Maestro</option>
+                <option value='licenciado'>Licenciado</option>
+                <option value='ingeniero'>Ingeniero</option>
+                <option value='profesor'>Profesor</option>
               </select>
             </label>
           </div>
@@ -35,10 +35,10 @@
               <select name='role' v-model='person.role' v-validate='"required"'
                 :class='{ "is-default": !person.role }'>
                 <option value=''>Obligatorio</option>
-                <option value='student'>Alumno</option>
-                <option value='manager'>Directivo</option>
-                <option value='speaker'>Ponente</option>
-                <option value='academic'>Académico</option>
+                <option value='estudiante'>Alumno</option>
+                <option value='directivo'>Directivo</option>
+                <option value='ponente'>Ponente</option>
+                <option value='academico'>Académico</option>
               </select>
             </label>
           </div>
@@ -78,6 +78,16 @@
 
         <div class='row'>
           <div class='select-field-container small-12 medium-6 columns'>
+            <label :class="{ 'error' : errors.has('contry') }">
+              <span>País donde recide</span>
+
+              <input name='country' type='text'
+                placeholder='Obligatorio' v-model='person.country'
+                v-validate='"required|min:3|max:30"'>
+            </label>
+          </div>
+
+          <div class='select-field-container small-12 medium-6 columns'>
             <label :class="{ 'error' : errors.has('state') }">
               <span>Estado donde reside</span>
 
@@ -101,8 +111,8 @@
                 v-validate='"required|max:40"'
                 :class='{ "is-default": !person.gender }'>
                 <option value=''>Obligatorio</option>
-                <option value='male'>Masculino</option>
-                <option value='female'>Femenino</option>
+                <option value='masculino'>Masculino</option>
+                <option value='femenino'>Femenino</option>
               </select>
             </label>
           </div>
@@ -197,10 +207,20 @@
 
     computed: {
       namePreview () {
+        let degreeShorthand;
+        switch (this.person.degree) {
+          case 'doctor': degreeShorthand = 'Dr.'; break
+          case 'maestro': degreeShorthand = 'Mtro.'; break
+          case 'licenciado': degreeShorthand = 'Lic.'; break
+          case 'ingeniero': degreeShorthand = 'Ing.'; break
+          case 'profesor': degreeShorthand = 'Prof.'; break
+          default: degreeShorthand = ''; break
+        }
+
         let isSomeNameDefined =
           this.person.firstName || this.person.lastName || this.person.degree
         return isSomeNameDefined
-          ? this.person.degree + ' ' + this.person.firstName + ' '
+          ? degreeShorthand + ' ' + this.person.firstName + ' '
             + this.person.lastName
           : ''
       }
