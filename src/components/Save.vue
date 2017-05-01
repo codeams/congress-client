@@ -3,21 +3,41 @@
 
     <div class='row'>
       <div class='small-12 columns'>
-        <span class='section-title'>Registro realizado con éxito</span>
+        <span class='section-title' v-if='registrationSuccessful === "saving"'>
+          Guardando...
+        </span>
+        <span class='section-title' v-if='registrationSuccessful === "success"'>
+          Confirma tu correo electrónico
+        </span>
+        <span class='section-title' v-else-if='registrationSuccessful === "fail"'>
+          Ha ocurrido un error al guardar
+        </span>
       </div>
     </div>
 
     <div class='section-content'>
       <div class='text row'>
-        <div class='small-12 columns'>
+        <div class='small-12 columns' v-if='registrationSuccessful === "success"'>
           <p>
-            ¡Gracias por registrarte al <strong>CONISOFT</strong>!
+            ¡Sólo un paso más!
           </p>
           <p>
-            El registro se ha completado exitosamente. Deberás en los próximos
-            minutos recibir un email de confirmación en
-            <strong>{{ this.person.email }}</strong>.
+            Tu información ha sido guardada con éxito. Te hemos enviado un correo a
+            la dirección <strong>{{ this.person.email }}</strong>. Por favor
+            <strong>confirma</strong> tu correo electrónico en la próximas 72
+            horas para concluir el registro.
           </p>
+        </div>
+        <div class='small-12 columns' v-else-if='registrationSuccessful === "fail"'>
+          Error: {{ this.errorMessage }}.
+
+          <div class='align-center row'>
+            <div class='buttons-container small-12 medium-6 text-right columns'>
+
+            <input type='button' @click='gotoPrevStage'
+              class='button secondary large' value='Regresar'>
+          </div>
+          </div>
         </div>
       </div>
     </div>
@@ -36,7 +56,10 @@
     name: 'Save',
 
     data () {
-      return {}
+      return {
+        registrationSuccessful: 'saving',
+        errorMessage: ''
+      }
     },
 
     computed: mapGetters ([
@@ -45,7 +68,10 @@
       'deposit'
     ]),
 
-    methods: mapActions ([ 'setRegistrationCompleteness' ]),
+    methods: mapActions ([
+      'gotoPrevStage',
+      'setRegistrationCompleteness'
+    ]),
 
     created () {
       this.setRegistrationCompleteness( true )
@@ -67,11 +93,15 @@
       Axios({
         method: 'POST',
         url: 'http://congress.api/index.php',
-        data: {data: request}
+        data: {data: request},
+        validateStatus: status => status === 200
       }).then((response) => {
+        this.registrationSuccessful = 'success'
         console.log(response.data)
       }).catch((error) => {
+        this.registrationSuccessful = 'fail'
         console.log(error.response)
+        this.errorMessage = error.response.data.message
       })
     },
   }
