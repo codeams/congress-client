@@ -4,6 +4,11 @@ let RequestTransformer = (request) => {
   request['registrant'] = request['person']
   delete request['person']
 
+  // Remove group if empty
+  if (request['group'] === null) {
+    delete request['group']
+  }
+
   // Return the transformed request
   return request
 }
@@ -33,7 +38,13 @@ let PersonTransformer = (person) => {
 }
 
 let GroupTransformer = (group) => {
-  return group
+  for (let index in group) {
+    if (group[index]['name'] === '')
+      group.splice(index, 1)
+  }
+
+  if (group.length < 1) return null
+  else return group
 }
 
 let DepositTransformer = (deposit) => {

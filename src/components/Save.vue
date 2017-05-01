@@ -63,6 +63,16 @@
       request = RequestTransformers.RequestTransformer(request)
 
       console.log(request)
+
+      Axios({
+        method: 'POST',
+        url: 'http://congress.api/index.php',
+        data: {data: request}
+      }).then((response) => {
+        console.log(response.data)
+      }).catch((error) => {
+        console.log(error.response)
+      })
     },
   }
 
