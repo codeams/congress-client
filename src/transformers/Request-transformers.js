@@ -1,5 +1,7 @@
 
 let RequestTransformer = (request) => {
+  request = Object.assign({}, request)
+
   // Rename person to registrant
   request['registrant'] = request['person']
   delete request['person']
@@ -14,6 +16,8 @@ let RequestTransformer = (request) => {
 }
 
 let PersonTransformer = (person) => {
+  person = Object.assign({}, person)
+
   // Add the display name field
   let degreeShorthand;
   switch (person['degree']) {
@@ -38,6 +42,8 @@ let PersonTransformer = (person) => {
 }
 
 let GroupTransformer = (group) => {
+  group = JSON.parse(JSON.stringify(group))
+
   for (let index in group) {
     if (group[index]['name'] === '')
       group.splice(index, 1)
@@ -48,6 +54,8 @@ let GroupTransformer = (group) => {
 }
 
 let DepositTransformer = (deposit) => {
+  deposit = Object.assign({}, deposit)
+
   // Transform the date attribue
   let year = deposit['date']['year']
   let month = deposit['date']['month']
