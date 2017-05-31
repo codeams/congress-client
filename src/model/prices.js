@@ -1,39 +1,79 @@
 
 export default [
   {
-    key: 'uady-student',
-    price: 0,
-    name: 'Alumno de UADY',
-    groupal: false
+    key: 'public',
+    title: 'Público y asistentes',
+    registrationTypes: [
+      {
+        key: 'local-student',
+        price: 300,
+        currency: 'M.N.',
+        name: 'Alumnos locales',
+        groupal: false
+      },
+      {
+        key: 'foreign-student',
+        price: 50,
+        currency: 'USD',
+        name: 'Alumno extranjero',
+        groupal: false
+      },
+      {
+        key: 'local-participant',
+        price: 600,
+        currency: 'M.N.',
+        name: 'Público local',
+        groupal: false
+      },
+      {
+        key: 'foreign-participant',
+        price: 100,
+        currency: 'USD',
+        name: 'Público extranjero',
+        groupal: false
+      }
+    ]
   },
   {
-    key: 'foreign-student',
-    price: 350,
-    name: 'Alumno ajeno a UADY',
-    groupal: false
-  },
-  {
-    key: 'speaker',
-    price: 7900,
-    name: 'Ponente del congreso',
-    groupal: false
-  },
-  {
-    key: 'uady-students-group',
-    price: 0,
-    name: 'Grupo de alumnos de UADY',
-    groupal: true
-  },
-  {
-    key: 'foreign-students-group',
-    price: 260,
-    name: 'Grupo de alumnos ajenos a UADY',
-    groupal: true
-  },
-  {
-    key: 'academic',
-    price: 3800,
-    name: 'Académico de universidad',
-    groupal: false
-  },
+    key: 'authors',
+    title: 'Autores y ponentes',
+    registrationTypes: [
+      {
+        key: 'local-author',
+        price: 2000,
+        currency: 'M.N.',
+        name: 'Autor local',
+        groupal: false
+      },
+      {
+        key: 'foreign-author',
+        price: 3500,
+        currency: 'USD',
+        name: 'Autor extranjero',
+        groupal: false
+      },
+      {
+        key: 'local-author-group',
+        name: 'Grupo de autores locales',
+        groupal: true,
+        price: 2000,
+        currency: 'M.N.',
+        aditional: {
+          price: 1000,
+          currency: 'M.N.'
+        }
+      },
+      {
+        key: 'foreign-authors-group',
+        name: 'Grupo de autores extranjeros',
+        groupal: true,
+        price: 3500,
+        currency: 'USD',
+        aditional: {
+          price: 2000,
+          currency: 'USD'
+        }
+      }
+    ]
+  }
 ]

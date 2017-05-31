@@ -1,25 +1,34 @@
 <template lang='html'>
   <div id='prices-grid'>
-    <span class='section-title'>Selección de tipo de registro</span>
+    <span class='section-title'>Selecciona un tipo de registro</span>
 
     <div class='section-content'>
 
-      <div class='registration-types small-up-1 medium-up-2 large-up-3 row'>
+      <div v-for='section in prices'>
+        <h2>{{ section.title }}</h2>
+        <div class='registration-types small-up-1 medium-up-2 large-up-2 row'>
 
-        <div class='column' v-for='registrationType in prices'>
-          <div class='registration-type'
-            @click='
-              setRegistrationType( registrationType );
-              gotoNextStage()
-            '>
-            <span class='type-price'>
-              $ {{ registrationType.price }}
-              {{ registrationType.groupal ? 'p/p' : '' }}
-            </span>
-            <span class='type-name'>{{ registrationType.name }}</span>
+          <div class='column' v-for='registrationType in section.registrationTypes'>
+            <div class='registration-type'
+              @click='
+                setRegistrationType( registrationType );
+                gotoNextStage()
+              '>
+              <span class='type-price'>
+                <div v-if='registrationType.aditional' class='meta-tag'>
+                  Responsable
+                </div>
+                $ {{ registrationType.price }} {{ registrationType.currency }}
+                {{ registrationType.groupal && !registrationType.aditional ? 'p/p' : '' }}
+              </span>
+              <span class='type-aditional' v-if='registrationType.aditional'>
+                <span class='meta-tag'>Adicional</span><br> $ {{ registrationType.aditional.price }} {{ registrationType.aditional.currency }} 
+              </span>
+              <span class='type-name'>{{ registrationType.name }}</span>
+            </div>
           </div>
-        </div>
 
+        </div>
       </div>
 
     </div>
@@ -91,9 +100,21 @@
 
   .registration-type .type-price {
     display: block;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     font-weight: 700;
-    font-size: 2em;
+    font-size: 1.5em;
+  }
+  
+  .registration-type .type-aditional {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: normal;
+    font-size: 1.5em;
+  }
+  
+  .registration-type .meta-tag {
+    font-size: 0.8em;
+    color: #222;
   }
 
 </style>
