@@ -15,12 +15,15 @@
 
 
 <script>
+
   export default {
     name: 'Top',
+
     data () {
       return {}
     }
   }
+
 </script>
 
 
