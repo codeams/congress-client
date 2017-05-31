@@ -80,19 +80,28 @@
           <div class='select-field-container small-12 medium-6 columns'>
             <label :class="{ 'error' : errors.has('contry') }">
               <span>País donde recide</span>
-
-              <input name='country' type='text'
-                placeholder='Obligatorio' v-model='person.country'
-                v-validate='"required|min:3|max:30"'>
+              <select name='country' v-model='person.country'
+                v-validate='"required"'
+                :class='{ "is-default": !person.country }'>
+                <option value=''>Obligatorio</option>
+                <option v-for='countryName, countryKey in countriesList'
+                  :value='countryKey'>
+                  {{ countryName }}
+                </option>
+              </select>
             </label>
           </div>
 
-          <div class='select-field-container small-12 medium-6 columns'>
+          <div :class='{
+              "text-field-container": person.country !== "MX",
+              "select-field-container": person.country === "MX",
+              "small-12 medium-6 columns": true
+            }'>
             <label :class="{ 'error' : errors.has('state') }">
               <span>Estado donde reside</span>
 
               <select name='state' v-model='person.state'
-                v-validate='"required|max:40"'
+                v-if='person.country === "MX"' v-validate='"required"'
                 :class='{ "is-default": !person.state }'>
                 <option value=''>Obligatorio</option>
                 <option v-for='state in statesList'
@@ -100,6 +109,10 @@
                   {{ state }}
                 </option>
               </select>
+              
+              <input type='text' name='state' v-model='person.state'
+                v-if='person.country !== "MX"' v-validate='"required|max:40"'
+                placeholder='Obligatorio'>
             </label>
           </div>
 
@@ -190,6 +203,7 @@
   import { mapActions } from 'vuex'
   import { capitalize } from '../../utils/filters'
 
+  import countriesList from '@/assets/lists/countries-list'
   import statesList from '../../assets/lists/states-list.json'
   import institutionsList from '../../assets/lists/institutions-list.json'
 
@@ -200,6 +214,7 @@
     data() {
       return {
         person: {},
+        countriesList: countriesList,
         statesList: statesList,
         institutionsList: institutionsList,
       }
