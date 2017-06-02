@@ -1,9 +1,15 @@
 <template lang='html'>
   <div id='bottom'>
 
-    <a href='#'>Aviso de privacidad</a>
-    <a href='#'>Términos de uso</a>
-    <a href='#'>Derechos de autor</a>
+    <p>
+      El logo de la Universidad Autónoma De Yucatán y del CONISOFT son
+      propiedad de sus respectivos dueños.
+    </p>
+    <p>
+      <a href='http://redmis2016.com.mx/conisoft2017/' title='CONISOFT 2017'>CONISOFT 2017</a>
+      <a href='#' title='Aviso de privacidad'>Aviso de privacidad</a>
+      <a href='#' title='Contacto con los organizadores'>Contacto</a>
+    </p>
 
   </div>
 </template>
@@ -25,14 +31,15 @@
     padding: 30px 0;
     text-align: center;
 
+    span,
+    p,
+    a {
+      color: #f2f2f2;
+    }
+
     a {
       margin: 0 15px;
-      text-decoration: none;
-      color: #f2f2f2;
-
-      &:hover {
-        text-decoration: underline;
-      }
+      text-decoration: underline;
     }
   }
 
