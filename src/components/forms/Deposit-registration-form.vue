@@ -43,11 +43,11 @@
 
           <div class='text-field-container small-12 medium-6 columns'>
             <label :class="{ 'error' : errors.has('ammount') }">
-              <span>Monto</span>
+              <span>Monto (En pesos mexicanos)</span>
 
               <input name='ammount' type='number' v-model='deposit.ammount'
                 placeholder='Obligatorio'
-                v-validate='"required|max:20|numeric"'>
+                v-validate='"required|max:16|decimal:2"'>
             </label>
           </div>
         </div>
