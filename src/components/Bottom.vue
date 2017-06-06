@@ -2,10 +2,6 @@
   <div id='bottom'>
 
     <p>
-      El logo de la Universidad Autónoma De Yucatán y del CONISOFT son
-      propiedad de sus respectivos dueños.
-    </p>
-    <p>
       <a href='http://redmis2016.com.mx/conisoft2017/' title='CONISOFT 2017'>CONISOFT 2017</a>
       <a href='#' title='Aviso de privacidad'>Aviso de privacidad</a>
       <a href='#' title='Contacto con los organizadores'>Contacto</a>
