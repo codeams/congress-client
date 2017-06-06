@@ -9,7 +9,7 @@ export default {
     role: '',
     firstName: '',
     lastName: '',
-    country: '',
+    country: 'MX',
     state: '',
     gender: '',
     institution: '',
