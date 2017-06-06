@@ -34,9 +34,9 @@
           <div class='align-center row'>
             <div class='buttons-container small-12 medium-6 text-right columns'>
 
-            <input type='button' @click='gotoPrevStage'
-              class='button secondary large' value='Regresar'>
-          </div>
+              <input type='button' @click='gotoPrevStage'
+                class='button secondary large' value='Regresar'>
+            </div>
           </div>
         </div>
       </div>
@@ -48,6 +48,7 @@
 
 <script>
 
+  import config from '@/config'
   import Axios from 'axios'
   import RequestTransformers from '@/transformers/Request-transformers'
   import { mapGetters, mapActions } from 'vuex'
@@ -92,7 +93,7 @@
 
       Axios({
         method: 'POST',
-        url: 'http://congress.api/index.php',
+        url: config.SAVE_PATH,
         data: {data: request},
         validateStatus: status => status === 200
       }).then((response) => {
