@@ -89,7 +89,7 @@
 
       request = RequestTransformers.RequestTransformer(request)
 
-      console.log(request)
+      // console.log(request)
 
       Axios({
         method: 'POST',
@@ -98,10 +98,10 @@
         validateStatus: status => status === 200
       }).then((response) => {
         this.registrationSuccessful = 'success'
-        console.log(response.data)
+        // console.log(response.data)
       }).catch((error) => {
         this.registrationSuccessful = 'fail'
-        console.log(error.response)
+        // console.log(error.response)
         this.errorMessage = error.response.data.message
       })
     },
