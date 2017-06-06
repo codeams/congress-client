@@ -1,6 +1,9 @@
 
 import prices from './prices'
 
+let date = new Date()
+let toTwoDigits = (num) => num < 10 ? '0' + num : num
+
 export default {
   registrationType: {},
 
@@ -29,13 +32,13 @@ export default {
     referenceNumber: '',
     ammount: '',
     date: {
-      year: '',
-      month: '',
-      day: ''
+      year: date.getFullYear(),
+      month: date.getMonth(),
+      day: toTwoDigits(date.getDate())
     },
     time: {
-      hour: '',
-      minute: ''
+      hour: toTwoDigits(date.getHours()),
+      minute: toTwoDigits(date.getMinutes())
     },
   },
 

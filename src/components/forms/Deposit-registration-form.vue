@@ -72,18 +72,18 @@
 
               <select name='date_month' v-model='deposit.date.month'
                 v-validate='"required"'>
-                <option value='1'>Enero</option>
-                <option value='2'>Febrero</option>
-                <option value='3'>Marzo</option>
-                <option value='4'>Abril</option>
-                <option value='5'>Mayo</option>
-                <option value='6'>Junio</option>
-                <option value='7'>Julio</option>
-                <option value='8'>Agosto</option>
-                <option value='9'>Septiembre</option>
-                <option value='10'>Octubre</option>
-                <option value='11'>Noviembre</option>
-                <option value='12'>Diciembre</option>
+                <option value='0'>Enero</option>
+                <option value='1'>Febrero</option>
+                <option value='2'>Marzo</option>
+                <option value='3'>Abril</option>
+                <option value='4'>Mayo</option>
+                <option value='5'>Junio</option>
+                <option value='6'>Julio</option>
+                <option value='7'>Agosto</option>
+                <option value='8'>Septiembre</option>
+                <option value='9'>Octubre</option>
+                <option value='10'>Noviembre</option>
+                <option value='11'>Diciembre</option>
               </select>
             </label>
           </div>
@@ -94,15 +94,15 @@
 
               <select name='date_day' v-model='deposit.date.day'
                 v-validate='"required"'>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+                <option>04</option>
+                <option>05</option>
+                <option>06</option>
+                <option>07</option>
+                <option>08</option>
+                <option>09</option>
                 <option>10</option>
                 <option>11</option>
                 <option>12</option>
@@ -135,15 +135,16 @@
 
               <select name='time_hour' v-model='deposit.time.hour'
                 v-validate='"required"'>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
+                <option>00</option>
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+                <option>04</option>
+                <option>05</option>
+                <option>06</option>
+                <option>07</option>
+                <option>08</option>
+                <option>09</option>
                 <option>10</option>
                 <option>11</option>
                 <option>12</option>
@@ -169,15 +170,16 @@
 
               <select name='time_minute' v-model='deposit.time.minute'
                 v-validate='"required"'>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
+                <option>00</option>
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+                <option>04</option>
+                <option>05</option>
+                <option>06</option>
+                <option>07</option>
+                <option>08</option>
+                <option>09</option>
                 <option>10</option>
                 <option>11</option>
                 <option>12</option>
