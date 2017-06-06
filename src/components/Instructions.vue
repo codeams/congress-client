@@ -20,7 +20,7 @@
           <ul>
             <li>Consulte la cuota de recuperación vigente.</li>
             <li>Realice el depósito de acuerdo a las instrucciones proporcionadas.</li>
-            <li>Sólo después de haber completado los pasos anteriores regístrese utilizando este sistema.</li>
+            <li>Regístrese utilizando este sistema.</li>
             <li>Una vez realizado su registro recibirá un número de folio en su dirección de correo electrónico especificado.</li>
             <li>Deberá presentarse al congreso con la ficha ORIGINAL del depósito bancario y con el formato que recibirá por correo electrónico.</li>
             <li>No es posible modificar la información proporcionada una vez que el registro ha concluido, cualquier aclaración o modificación deberá realizarse hasta llegar al congreso.</li>
