@@ -109,7 +109,7 @@
                   {{ state }}
                 </option>
               </select>
-              
+
               <input type='text' name='state' v-model='person.state'
                 v-if='person.country !== "MX"' v-validate='"required|max:40"'
                 placeholder='Obligatorio'>
@@ -161,7 +161,7 @@
         <div class='row'>
           <div class='text-field-container small-12 medium-5 columns'>
             <label :class="{ 'error' : errors.has('telephone_number') }">
-              <span>Teléfono</span>
+              <span>Teléfono con lada</span>
 
               <input name='telephone_number' type='number'
                 placeholder='Obligatorio' v-model='person.telephone.number'
