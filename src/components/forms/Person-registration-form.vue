@@ -137,14 +137,18 @@
               <span>Universidad o Institución</span>
 
               <select name='institution' v-model='person.institution'
-                v-validate='"required"'
+                v-validate='"required"' v-if='!preferences.showInstitutionFieldAsInput'
                 :class='{ "is-default": !person.institution }'>
                 <option value=''>Obligatorio</option>
                 <option v-for='institution in institutionsList'
-                  :value='institution.name'>
+                  :value='institution.value ? institution.value : institution.name'>
                   {{ institution.name }}
                 </option>
               </select>
+
+              <input name='institution' type='text' placeholder='Obligatorio'
+                v-validate='"required|max:120"' v-model='person.institution'
+                v-if='preferences.showInstitutionFieldAsInput'>
             </label>
           </div>
 
@@ -217,6 +221,10 @@
         countriesList: countriesList,
         statesList: statesList,
         institutionsList: institutionsList,
+
+        preferences: {
+          showInstitutionFieldAsInput: false
+        }
       }
     },
 
@@ -292,6 +300,12 @@
       },
       'person.lastName' ( lastName ) {
         this.person.lastName = capitalize( lastName )
+      },
+      'person.institution' ( institution ) {
+        if (institution === 'other') {
+          this.preferences.showInstitutionFieldAsInput = true
+          this.person.institution = ''
+        }
       }
     }
   }
