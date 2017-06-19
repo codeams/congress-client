@@ -324,8 +324,8 @@
     },
 
     watch: {
-      deposit: {
-        handler ( deposit ) { this.setDeposit( deposit ) }
+      deposit (newValue) {
+        this.setDeposit( newValue )
       }
     },
 
