@@ -239,13 +239,13 @@
 
     </div>
 
-    <div class='row align-center'>
+    <div v-if='person.role === "ponente"' class='row align-center'>
       <div class='small-12 columns'>
         <span class='section-title'>Adjuntos</span>
       </div>
     </div>
 
-    <div class='section-content'>
+    <div v-if='person.role === "ponente"' class='section-content'>
 
       <div class='registration-form deposit-details-registration'>
         <div class='first row align-center'>
@@ -253,7 +253,7 @@
             <label :class="{ 'error' : errors.has('ticket-photo') }">
               <span>Fotografía del ticket</span>
 
-              <image-picker v-validate='"required"' data-vv-name='ticket-photo' data-vv-value-path='value' v-model='deposit.ticketPhoto'></image-picker>
+              <image-picker v-validate='person.role === "ponente" ? "required" : ""' data-vv-name='ticket-photo' data-vv-value-path='value' v-model='deposit.ticketPhoto'></image-picker>
             </label>
           </div>
         </div>
@@ -277,7 +277,10 @@
     name: 'Deposit-registration-form',
 
     data () {
-      return { deposit: {} }
+      return {
+        deposit: {},
+        person: {}
+      }
     },
 
     mounted() {
@@ -300,6 +303,7 @@
 
     created () {
       this.deposit = this.$store.state.deposit
+      this.person = this.$store.state.person
     },
 
     methods: {
