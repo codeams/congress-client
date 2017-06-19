@@ -299,6 +299,8 @@
         bus.$emit( 'errors-changed', newErrors, oldErrors )
       })
 
+      this.deposit.ticketPhoto = ''
+
     },
 
     created () {
