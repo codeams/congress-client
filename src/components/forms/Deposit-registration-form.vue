@@ -239,6 +239,27 @@
 
     </div>
 
+    <div v-if='person.role === "ponente"' class='row align-center'>
+      <div class='small-12 columns'>
+        <span class='section-title'>Adjuntos</span>
+      </div>
+    </div>
+
+    <div v-if='person.role === "ponente"' class='section-content'>
+
+      <div class='registration-form deposit-details-registration'>
+        <div class='first row align-center'>
+           <div class='text-field-container big-12 columns'>
+            <label :class="{ 'error' : errors.has('ticket-photo') }">
+              <span>Fotografía del ticket</span>
+
+              <image-picker v-validate='person.role === "ponente" ? "required" : ""' data-vv-name='ticket-photo' data-vv-value-path='value' v-model='deposit.ticketPhoto'></image-picker>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -250,11 +271,16 @@
 
   import { mapActions } from 'vuex'
 
+  import ImagePicker from '@/components/Image-picker'
+
   export default {
     name: 'Deposit-registration-form',
 
     data () {
-      return { deposit: {} }
+      return {
+        deposit: {},
+        person: {}
+      }
     },
 
     mounted() {
@@ -273,10 +299,13 @@
         bus.$emit( 'errors-changed', newErrors, oldErrors )
       })
 
+      this.deposit.ticketPhoto = ''
+
     },
 
     created () {
       this.deposit = this.$store.state.deposit
+      this.person = this.$store.state.person
     },
 
     methods: {
@@ -297,10 +326,14 @@
     },
 
     watch: {
-      deposit: {
-        handler ( deposit ) { this.setDeposit( deposit ) }
+      deposit (newValue) {
+        this.setDeposit( newValue )
       }
     },
+
+    components: {
+      ImagePicker
+    }
   }
 
 </script>

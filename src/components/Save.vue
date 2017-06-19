@@ -48,8 +48,9 @@
 
 <script>
 
-  import config from '@/config'
   import Axios from 'axios'
+  import config from '@/config'
+  import uploadImage from '@/utils/upload-image'
   import RequestTransformers from '@/transformers/Request-transformers'
   import { mapGetters, mapActions } from 'vuex'
 
@@ -81,29 +82,26 @@
       let group = RequestTransformers.GroupTransformer(this.group)
       let deposit = RequestTransformers.DepositTransformer(this.deposit)
 
-      let request = {
-        person,
-        group,
-        deposit
-      }
+      uploadImage(deposit.ticketPhoto)
+        .then((imageUrl) => {
+          deposit['ticketPhoto'] = imageUrl
+          let request = { person, group, deposit }
+          request = RequestTransformers.RequestTransformer(request)
 
-      request = RequestTransformers.RequestTransformer(request)
-
-      // console.log(request)
-
-      Axios({
-        method: 'POST',
-        url: config.SAVE_PATH,
-        data: {data: request},
-        validateStatus: status => status === 200
-      }).then((response) => {
-        this.registrationSuccessful = 'success'
-        // console.log(response.data)
-      }).catch((error) => {
-        this.registrationSuccessful = 'fail'
-        // console.log(error.response)
-        this.errorMessage = error.response.data.message
-      })
+          Axios({
+            method: 'POST',
+            url: config.SAVE_PATH,
+            data: {data: request},
+            validateStatus: status => status === 200
+          }).then((response) => {
+            this.registrationSuccessful = 'success'
+          }).catch((error) => {
+            this.registrationSuccessful = 'fail'
+            this.errorMessage = error.response.data.message
+          })
+        }).catch((error) => {
+          alert('Ha ocurrido un error al subir la foto del ticket.')
+        });
     },
   }
 

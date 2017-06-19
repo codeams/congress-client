@@ -40,6 +40,7 @@ export default {
       hour: toTwoDigits(date.getHours()),
       minute: toTwoDigits(date.getMinutes())
     },
+    ticketPhoto: ''
   },
 
   termsAcceptance: false,
