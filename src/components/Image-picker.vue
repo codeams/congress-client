@@ -48,7 +48,11 @@
         let reader = new FileReader()
 
         reader.onload = (event) => {
-          this.updateValue(event.target.result)
+          let result = event.target.result
+          if (this.isTypeValid(result)) this.updateValue(result)
+          else {
+            alert('El ticket debe ser una imagen.')
+          }
         }
 
         reader.readAsDataURL(file)
@@ -64,10 +68,7 @@
       },
 
       updateValue (value) {
-        if (this.isTypeValid(value)) this.$emit('input', value)
-        else {
-          alert('El ticket debe ser una imagen.')
-        }
+        this.$emit('input', value)
       }
     }
   }
