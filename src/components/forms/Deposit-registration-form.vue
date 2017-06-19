@@ -239,6 +239,27 @@
 
     </div>
 
+    <div class='row align-center'>
+      <div class='small-12 columns'>
+        <span class='section-title'>Adjuntos</span>
+      </div>
+    </div>
+
+    <div class='section-content'>
+
+      <div class='registration-form deposit-details-registration'>
+        <div class='first row align-center'>
+           <div class='text-field-container big-12 columns'>
+            <label :class="{ 'error' : errors.has('ticket-photo') }">
+              <span>Fotografía del ticket</span>
+
+              <image-picker v-validate='"required"' data-vv-name='ticket-photo' data-vv-value-path='value' v-model='deposit.ticketPhoto'></image-picker>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -249,6 +270,8 @@
   import bus from '../../utils/bus'
 
   import { mapActions } from 'vuex'
+
+  import ImagePicker from '@/components/Image-picker'
 
   export default {
     name: 'Deposit-registration-form',
@@ -301,6 +324,10 @@
         handler ( deposit ) { this.setDeposit( deposit ) }
       }
     },
+
+    components: {
+      ImagePicker
+    }
   }
 
 </script>
