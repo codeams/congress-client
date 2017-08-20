@@ -49,7 +49,6 @@
 <script>
 
   import Axios from 'axios'
-  import config from '@/config'
   import uploadImage from '@/utils/upload-image'
   import RequestTransformers from '@/transformers/Request-transformers'
   import { mapGetters, mapActions } from 'vuex'
@@ -90,7 +89,7 @@
 
           Axios({
             method: 'POST',
-            url: config.SAVE_PATH,
+            url: process.env.API_URL + process.env.SAVE_PATH,
             data: {data: request},
             validateStatus: status => status === 200
           }).then((response) => {
