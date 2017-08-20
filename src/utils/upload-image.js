@@ -1,6 +1,5 @@
 
 import Axios from 'axios'
-import config from '@/config'
 
 let base64ToBlob = (base64, mime) => {
   mime = mime || ''
@@ -47,7 +46,7 @@ let uploadImage = (image) => {
     data.append('image', blob)
     data.append('extension', extension)
 
-    Axios.post(config.UPLOAD_IMAGE_PATH, data)
+    Axios.post(process.env.API_URL + process.env.UPLOAD_IMAGE_PATH, data)
       .then(response => {
         resolve(response.data['image_relative_path'])
       }).catch(error => {
