@@ -1,4 +1,3 @@
-
 export default [
   {
     key: 'public',
@@ -47,7 +46,7 @@ export default [
       },
       {
         key: 'foreign-author',
-        price: 3500,
+        price: 350,
         currency: 'USD',
         name: 'Autor extranjero',
         groupal: false
@@ -67,10 +66,10 @@ export default [
         key: 'foreign-authors-group',
         name: 'Grupo de autores extranjeros',
         groupal: true,
-        price: 3500,
+        price: 350,
         currency: 'USD',
         aditional: {
-          price: 2000,
+          price: 200,
           currency: 'USD'
         }
       }
