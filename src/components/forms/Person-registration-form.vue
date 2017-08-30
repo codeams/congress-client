@@ -3,7 +3,8 @@
 
     <div class='row'>
       <div class='small-12 columns'>
-        <span class='section-title'>Responsable de grupo</span>
+        <span class='section-title' v-if='registrationType.groupal'>Responsable de grupo</span>
+        <span class='section-title' v-else>Datos del registrante</span>
       </div>
     </div>
 
@@ -204,7 +205,7 @@
   import { find, propEq } from 'ramda'
   import bus from '../../utils/bus'
 
-  import { mapActions } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex'
   import { capitalize } from '../../utils/filters'
 
   import countriesList from '@/assets/lists/countries-list'
@@ -223,7 +224,11 @@
         institutionsList: institutionsList,
 
         preferences: {
-          showInstitutionFieldAsInput: false
+          showInstitutionFieldAsInput: false // This is false by default
+            // because the default country is MX and institution does not have
+            // a default value.
+            // Can't be a computed value since it depends on events (clicking
+            // the "other" option) and not just in values.
         }
       }
     },
@@ -246,7 +251,9 @@
           ? degreeShorthand + ' ' + this.person.firstName + ' '
             + this.person.lastName
           : ''
-      }
+      },
+
+      ...mapGetters(['registrationType'])
     },
 
     mounted() {
@@ -302,9 +309,20 @@
         this.person.lastName = capitalize( lastName )
       },
       'person.institution' ( institution ) {
-        if (institution === 'other') {
+        if (this.preferences.showInstitutionFieldAsInput) return
+
+        if (this.person.country === 'MX' && institution !== 'other') {
+          this.preferences.showInstitutionFieldAsInput = false
+        } else {
           this.preferences.showInstitutionFieldAsInput = true
-          this.person.institution = ''
+          if (institution === 'other') this.person.institution = ''
+        }
+      },
+      'person.country' (country) {
+        if (country === 'MX' && this.person.institution !== 'other') {
+          this.preferences.showInstitutionFieldAsInput = false
+        } else {
+          this.preferences.showInstitutionFieldAsInput = true
         }
       }
     }
