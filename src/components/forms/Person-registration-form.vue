@@ -224,7 +224,11 @@
         institutionsList: institutionsList,
 
         preferences: {
-          showInstitutionFieldAsInput: false
+          showInstitutionFieldAsInput: false // This is false by default
+            // because the default country is MX and institution does not have
+            // a default value.
+            // Can't be a computed value since it depends on events (clicking
+            // the "other" option) and not just in values.
         }
       }
     },
@@ -305,9 +309,20 @@
         this.person.lastName = capitalize( lastName )
       },
       'person.institution' ( institution ) {
-        if (institution === 'other') {
+        if (this.preferences.showInstitutionFieldAsInput) return
+
+        if (this.person.country === 'MX' && institution !== 'other') {
+          this.preferences.showInstitutionFieldAsInput = false
+        } else {
           this.preferences.showInstitutionFieldAsInput = true
-          this.person.institution = ''
+          if (institution === 'other') this.person.institution = ''
+        }
+      },
+      'person.country' (country) {
+        if (country === 'MX' && this.person.institution !== 'other') {
+          this.preferences.showInstitutionFieldAsInput = false
+        } else {
+          this.preferences.showInstitutionFieldAsInput = true
         }
       }
     }
