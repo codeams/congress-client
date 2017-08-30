@@ -3,7 +3,7 @@
     <div class='navigation align-center row'>
       <div class='small-12 large-6 columns-collapsed'>
         <span class='congress-title'>
-          Registro al <strong>CONISFOT</strong>
+          Registro al <strong>CONISOFT</strong>
         </span>
       </div>
 
@@ -115,7 +115,7 @@
 
   .navigation .congress-title {
     display: block;
-    font-size: 1.7em;
+    font-size: 2.1em;
     line-height: 40px;
     color: #00234E;
     cursor: default;
