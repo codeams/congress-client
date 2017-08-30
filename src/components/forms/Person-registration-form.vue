@@ -3,7 +3,8 @@
 
     <div class='row'>
       <div class='small-12 columns'>
-        <span class='section-title'>Responsable de grupo</span>
+        <span class='section-title' v-if='registrationType.groupal'>Responsable de grupo</span>
+        <span class='section-title' v-else>Datos del registrante</span>
       </div>
     </div>
 
@@ -204,7 +205,7 @@
   import { find, propEq } from 'ramda'
   import bus from '../../utils/bus'
 
-  import { mapActions } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex'
   import { capitalize } from '../../utils/filters'
 
   import countriesList from '@/assets/lists/countries-list'
@@ -246,7 +247,9 @@
           ? degreeShorthand + ' ' + this.person.firstName + ' '
             + this.person.lastName
           : ''
-      }
+      },
+
+      ...mapGetters(['registrationType'])
     },
 
     mounted() {
