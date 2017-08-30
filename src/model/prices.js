@@ -7,28 +7,28 @@ export default [
         key: 'local-student',
         price: 300,
         currency: 'M.N.',
-        name: 'Alumnos locales',
+        name: 'Alumno (Latinoamérica)',
         groupal: false
       },
       {
         key: 'foreign-student',
         price: 50,
         currency: 'USD',
-        name: 'Alumno extranjero',
+        name: 'Alumno (Resto del mundo)',
         groupal: false
       },
       {
         key: 'local-participant',
         price: 600,
         currency: 'M.N.',
-        name: 'Público local',
+        name: 'Público (Latinoamérica)',
         groupal: false
       },
       {
         key: 'foreign-participant',
         price: 100,
         currency: 'USD',
-        name: 'Público extranjero',
+        name: 'Público (Resto del mundo)',
         groupal: false
       }
     ]
@@ -41,19 +41,19 @@ export default [
         key: 'local-author',
         price: 2000,
         currency: 'M.N.',
-        name: 'Autor local',
+        name: 'Autor (Latinoamérica)',
         groupal: false
       },
       {
         key: 'foreign-author',
         price: 350,
         currency: 'USD',
-        name: 'Autor extranjero',
+        name: 'Autor (Resto del mundo)',
         groupal: false
       },
       {
         key: 'local-author-group',
-        name: 'Grupo de autores locales',
+        name: 'Grupo de autores (Latinoamérica)',
         groupal: true,
         price: 2000,
         currency: 'M.N.',
@@ -64,7 +64,7 @@ export default [
       },
       {
         key: 'foreign-authors-group',
-        name: 'Grupo de autores extranjeros',
+        name: 'Grupo de autores (Resto del mundo)',
         groupal: true,
         price: 350,
         currency: 'USD',
