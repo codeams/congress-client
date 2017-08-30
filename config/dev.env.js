@@ -6,7 +6,5 @@ module.exports = merge(prodEnv, {
   API_URL: '"http://congress.codeams.me/api/v1/"',
   SAVE_PATH: '"index.php"',
   UPLOAD_IMAGE_PATH: '"upload_image.php"',
-  CONFIRM_EMAIL_PATH: '"validate_email.php"',
-
-  assetsPublicPath: '/'
+  CONFIRM_EMAIL_PATH: '"validate_email.php"'
 })
